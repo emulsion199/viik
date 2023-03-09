@@ -1,6 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-}
+  swcMinify: true,
 
-module.exports = nextConfig
+  pageExtensions: ["tsx"],
+
+  images: {
+    unoptimized: true,
+  },
+};
+
+module.exports = nextConfig;

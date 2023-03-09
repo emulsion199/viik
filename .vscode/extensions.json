@@ -1,0 +1,6 @@
+{
+  "recommendations": [
+    // Tailwindcss IntelliSense
+    "bradlc.vscode-tailwindcss"
+  ]
+}

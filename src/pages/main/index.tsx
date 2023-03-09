@@ -1,13 +1,14 @@
-import MobileNavbar from '@/components/Navbar/Mobile';
-import RootTemplate from '@/components/Template/RootTemplate';
-import React from 'react';
-
+import React from "react";
+import MobileNavbar from "src/components/organisms/Navbar/Mobile";
+import RootTemplate from "src/components/Template/RootTemplate";
+import mobile from "is-mobile";
+import DesktopNavbar from "src/components/organisms/Navbar/Desktop";
 const Main = () => {
-    return (
-        <RootTemplate>
-            <MobileNavbar />
-        </RootTemplate>
-    );
+  return (
+    <RootTemplate>
+      {mobile() ? <MobileNavbar /> : <DesktopNavbar />}
+    </RootTemplate>
+  );
 };
 
 export default Main;

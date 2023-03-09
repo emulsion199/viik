@@ -1,0 +1,25 @@
+{
+  "typescript.tsdk": "node_modules/typescript/lib",
+
+  // Disable the built-in CSS language features for tailwind functions
+  "css.validate": false,
+  "scss.validate": false,
+
+  "editor.quickSuggestions": {
+    // Enable the built-in CSS language features for tailwind classes
+    "strings": true
+  },
+  "files.associations": {
+    // Enable the built-in CSS language features for tailwind classes
+    "*.css": "tailwindcss"
+  },
+
+  "tailwindCSS.includeLanguages": {
+    "typescript": "javascript",
+    "typescriptreact": "javascript"
+  },
+  "tailwindCSS.experimental.classRegex": [
+    ["classed.*\\(([\\w\\W]*)\\)", "'(.*)'"],
+    ["cn*\\(([\\w\\W]*)\\)", "'(.*)'"]
+  ]
+}
