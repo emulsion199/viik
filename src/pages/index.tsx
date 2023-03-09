@@ -15,9 +15,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <div style={{
-
-        }}>ascascasc</div>
+        <div>메인으로 이동하세요</div>
       </main>
       
     </>
