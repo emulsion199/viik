@@ -11,7 +11,7 @@ interface IUseInterval {
 
 const useInterval: IUseInterval = (callback, interval) => {
   const savedCallback = useRef<(() => void) | null>(null);
-  
+
   useEffect(() => {
     savedCallback.current = callback;
   });
@@ -28,26 +28,40 @@ const useInterval: IUseInterval = (callback, interval) => {
   }, [interval]);
 };
 
-
 const Main = () => {
   const mobile = useMobile();
-  const [BannerImageId,setBannerImageId]=useState<number>(1);
-  useInterval(() => setBannerImageId((currentId) => {
-    let nextId = currentId+1;
-    if (nextId>3){
-      nextId=1
-    }
-    return nextId
-  }),5000)
+  const [BannerImageId, setBannerImageId] = useState<number>(1);
+  useInterval(
+    () =>
+      setBannerImageId((currentId) => {
+        let nextId = currentId + 1;
+        if (nextId > 3) {
+          nextId = 1;
+        }
+        return nextId;
+      }),
+    5000
+  );
   return (
-    <RootTemplate>{mobile ? 
-    <>
-    <MobileNavbar />
-    <div className="w-screen h-[calc(100%-64px)] relative">
-      <Image className="transition-all ease-linear duration-300" alt="main" src={`img/main${BannerImageId}.png`} fill/>
-    </div>
-    </>
-     : <DesktopNavbar />}</RootTemplate>
+    // <RootTemplate>{mobile ?
+    // <>
+    // <MobileNavbar />
+    // <div className="w-screen h-[calc(100%-64px)] relative">
+    //   <Image className="transition-all ease-linear duration-300" alt="main" src={`img/main${BannerImageId}.png`} fill/>
+    // </div>
+    // </>
+    //  : <DesktopNavbar />}</RootTemplate>
+    <RootTemplate>
+      <MobileNavbar />
+      <div className="w-screen h-[calc(100%-64px)] relative">
+        <Image
+          className="transition-all ease-linear duration-300"
+          alt="main"
+          src={`img/main${BannerImageId}.png`}
+          fill
+        />
+      </div>
+    </RootTemplate>
   );
 };
 
