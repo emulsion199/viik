@@ -12,8 +12,10 @@ const MobileNavbar = () => {
     }
     return (
         <>
+        <div className='flex flex-col relative'>
         <div className='w-full flex sticky top-0'>
-        <div className='w-full h-16 flex flex-row bg-black text-white text-p2 justify-between items-center px-4 relative'>
+        <div className='w-full h-16 flex relative flex-col'>
+          <div className='w-full h-16 flex bg-black text-white text-p2 justify-between items-center px-4'>
             <div className='flex h-full justify-center items-center' onClick={openHandler}>
                 { isOpen ? <HiXMark size={18}/> :<BsList size={18} style={{padding:0,margin:0}}/>}
             </div>
@@ -21,9 +23,14 @@ const MobileNavbar = () => {
             <Image alt='mainLogo' src='/logo/logo.png' width={30} height={26} />
             </div>
             <div className='flex items-center justify-center h-full w-[49px] text-white text-p2'>STYLING</div>
+            </div>
         </div>
         </div>
-        {isOpen ? <MobileMenu /> : null}
+        <div className='flex w-full absolute z-50 top-16'>
+              {isOpen ? <MobileMenu /> : null}
+            </div>
+            </div>
+        
         </>
     );
 };

@@ -51,7 +51,7 @@ const MobileMenu = () => {
     ]
 
     return (
-        <div className='w-full flex flex-col fixed top-16 z-50 bg-white'>
+        <div className='w-full flex flex-col bg-white'>
             <MobileSearchBar />
             {MenuItems.map((item,index) => {
                 return <MobileMenuItem title={item.title} href={item.href} key={index}/>
