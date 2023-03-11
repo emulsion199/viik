@@ -3,13 +3,14 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 const COLORS = {
   white: "#FFF",
   black: "#101011",
-  yellow:'#FAF1E5',
+  transparent: "transparent",
   bg: {
     default: "#FAF1E5",
     hover: "#EAE4D8",
   },
   primary: "#384C43",
   accent: "#A8493D",
+  error: "#E84646",
   gray: {
     1: "#585A60",
     2: "#8C9098",
