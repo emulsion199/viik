@@ -3,6 +3,7 @@ const defaultTheme = require("tailwindcss/defaultTheme");
 const COLORS = {
   white: "#FFF",
   black: "#101011",
+  yellow:'#FAF1E5',
   bg: {
     default: "#FAF1E5",
     hover: "#EAE4D8",

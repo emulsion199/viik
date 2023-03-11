@@ -6,7 +6,7 @@ interface RootTemplateProps{
 
 const RootTemplate = (props:RootTemplateProps) => {
     return (
-        <div className='w-screen h-screen bg-sand_yellow'>
+        <div className='w-screen h-screen'>
             {props.children}
         </div>
     );
