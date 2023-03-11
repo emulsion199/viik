@@ -1,4 +1,5 @@
-export const cc = (...classNames: string[]) => {
+type className = string | undefined;
+export const cc = (...classNames: className[]) => {
   if (typeof classNames == "string") {
     return classNames;
   }
