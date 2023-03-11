@@ -5,15 +5,16 @@ type CustomProps = {
 };
 
 type Props = CustomProps & Omit<LabelProps, keyof CustomProps>;
-const Label = (props: Props) => {
+export const Label = React.forwardRef<HTMLLabelElement, Props>(function Label(
+  props,
+  ref
+) {
   const { title, children, ...labelProps } = props;
 
   return (
-    <label {...{ title }} {...labelProps}>
+    <label ref={ref} {...{ title }} {...labelProps}>
       <p className={"text-sm "}>{title}</p>
       {children}
     </label>
   );
-};
-
-export default React.forwardRef(Label);
+});

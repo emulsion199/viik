@@ -10,6 +10,7 @@ const COLORS = {
   },
   primary: "#384C43",
   accent: "#A8493D",
+  error: "#E84646",
   gray: {
     1: "#585A60",
     2: "#8C9098",
