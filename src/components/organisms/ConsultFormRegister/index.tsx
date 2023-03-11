@@ -46,13 +46,21 @@ const ConsultFormRegister = (props: Props) => {
       onSubmit={handleSubmit(submit)}
     >
       <Label title={"이름"}>
-        <Input placeholder={"이름"} {...name.field} />
+        <Input
+          placeholder={"이름"}
+          {...name.field}
+          error={formState.errors.name && true}
+        />
         <span className={"text-xs text-error"}>
           {formState.errors.name?.message}
         </span>
       </Label>
       <Label title={"연락처"}>
-        <Input placeholder={"010-0000-0000"} {...phone.field} />
+        <Input
+          placeholder={"010-0000-0000"}
+          {...phone.field}
+          error={formState.errors.phone && true}
+        />
         <span className={"text-xs text-error"}>
           {formState.errors.phone?.message}
         </span>
