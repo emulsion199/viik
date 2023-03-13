@@ -1,0 +1,8 @@
+@layer components {
+  .input {
+    @apply w-full border border-black h-12 bg-transparent indent-3 outline-none;
+    &.error {
+      @apply border-error;
+    }
+  }
+}
