@@ -1,9 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
-import MobileNavbar from "src/components/organisms/Navbar/Mobile";
-import RootTemplate from "src/components/Template/RootTemplate";
-import DesktopNavbar from "src/components/organisms/Navbar/Desktop";
-import { useMobile } from "src/hooks/useMobile";
-import Image from "next/image";
+import React, { useEffect, useRef, useState } from 'react';
+import MobileNavbar from 'src/components/organisms/Navbar/Mobile';
+import RootTemplate from 'src/components/Template/RootTemplate';
+import DesktopNavbar from 'src/components/organisms/Navbar/Desktop';
+import { useMobile } from 'src/hooks/useMobile';
+import Image from 'next/image';
 
 interface IUseInterval {
   (callback: () => void, interval: number): void;
@@ -11,7 +11,7 @@ interface IUseInterval {
 
 const useInterval: IUseInterval = (callback, interval) => {
   const savedCallback = useRef<(() => void) | null>(null);
-  
+
   useEffect(() => {
     savedCallback.current = callback;
   });
@@ -28,29 +28,36 @@ const useInterval: IUseInterval = (callback, interval) => {
   }, [interval]);
 };
 
-
 const Main = () => {
   const mobile = useMobile();
-  const [BannerImageId,setBannerImageId]=useState<number>(1);
-  useInterval(() => setBannerImageId((currentId) => {
-    let nextId = currentId+1;
-    if (nextId>3){
-      nextId=1
-    }
-    return nextId
-  }),5000)
+  const [BannerImageId, setBannerImageId] = useState<number>(1);
+  useInterval(
+    () =>
+      setBannerImageId(currentId => {
+        let nextId = currentId + 1;
+        if (nextId > 3) {
+          nextId = 1;
+        }
+        return nextId;
+      }),
+    5000
+  );
   return (
-    <RootTemplate>{mobile ? 
-    <>
-    <MobileNavbar />
-    <div className="w-screen h-[calc(100%-64px)] relative">
-      <Image className="transition-all ease-linear duration-300" alt="main" src={`img/main${BannerImageId}.png`} fill/>
-      <div className="absolute bottom-20 flex w-full items-center justify-center">
-        <span className="text-black text-[24px] font-light">Dark Plum</span>
-        </div>
-    </div>
-    </>
-     : <DesktopNavbar />}</RootTemplate>
+    <RootTemplate>
+      {mobile ? (
+        <>
+          <MobileNavbar />
+          <div className='w-screen h-[calc(100%-64px)] relative'>
+            <Image className='transition-all ease-linear duration-300' alt='main' src={`img/main${BannerImageId}.png`} fill />
+            <div className='absolute bottom-20 flex w-full items-center justify-center'>
+              <span className='text-black te  xt-[24px] font-light'>Dark Plum</span>
+            </div>
+          </div>
+        </>
+      ) : (
+        <DesktopNavbar />
+      )}
+    </RootTemplate>
   );
 };
 
