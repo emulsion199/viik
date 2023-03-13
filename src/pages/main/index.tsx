@@ -45,6 +45,9 @@ const Main = () => {
     <MobileNavbar />
     <div className="w-screen h-[calc(100%-64px)] relative">
       <Image className="transition-all ease-linear duration-300" alt="main" src={`img/main${BannerImageId}.png`} fill/>
+      <div className="absolute bottom-20 flex w-full items-center justify-center">
+        <span className="text-black text-[24px] font-light">Dark Plum</span>
+        </div>
     </div>
     </>
      : <DesktopNavbar />}</RootTemplate>
