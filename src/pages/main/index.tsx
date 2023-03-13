@@ -1,9 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
-import MobileNavbar from "src/components/organisms/Navbar/Mobile";
-import RootTemplate from "src/components/Template/RootTemplate";
-import DesktopNavbar from "src/components/organisms/Navbar/Desktop";
-import { useMobile } from "src/hooks/useMobile";
-import Image from "next/image";
+import React, { useEffect, useRef, useState } from 'react';
+import MobileNavbar from 'src/components/organisms/Navbar/Mobile';
+import RootTemplate from 'src/components/Template/RootTemplate';
+import DesktopNavbar from 'src/components/organisms/Navbar/Desktop';
+import { useMobile } from 'src/hooks/useMobile';
+import Image from 'next/image';
 
 interface IUseInterval {
   (callback: () => void, interval: number): void;

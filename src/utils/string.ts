@@ -1,6 +1,6 @@
 type className = string | undefined;
 export const cc = (...classNames: className[]) => {
-  if (typeof classNames == "string") {
+  if (typeof classNames == 'string') {
     return classNames;
   }
   const name = classNames.reduce((prev, it) => {
@@ -8,5 +8,5 @@ export const cc = (...classNames: className[]) => {
     prev.push(it);
     return prev;
   }, new Array<string>());
-  return name.join(" ");
+  return name.join(' ');
 };

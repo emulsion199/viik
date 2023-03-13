@@ -1,7 +1,9 @@
+
 import Link from "next/link";
 import React, { ReactNode, useEffect } from "react";
 import ICON_SEARCH from "#assets/icons/line/search.svg";
 import Image from "next/image";
+
 
 interface MobileMenuItemProps {
   title: string;
@@ -10,6 +12,7 @@ interface MobileMenuItemProps {
 
 const MobileMenuItem = (props: MobileMenuItemProps) => {
   return (
+
     <Link
       className="w-full h-16 bg-bg-default border-b border-black"
       href={props.href}
@@ -18,11 +21,13 @@ const MobileMenuItem = (props: MobileMenuItemProps) => {
         {props.title}
       </span>
     </Link>
+
   );
 };
 
 const MobileSearchBar = () => {
   return (
+
     <div className="relative">
       <input
         className="w-full h-16 border-b border-black bg-bg-default text-center text-"
@@ -31,6 +36,7 @@ const MobileSearchBar = () => {
       ></input>
       <span className="absolute left-4 top-1/3">
         <Image src={ICON_SEARCH} alt={"search"} width={24} height={24} />
+
       </span>
     </div>
   );
@@ -53,6 +59,7 @@ const MobileMenu = () => {
     {
       title: "SHOP",
       href: "",
+
     },
   ];
 

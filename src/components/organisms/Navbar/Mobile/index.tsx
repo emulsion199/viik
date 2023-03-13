@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 import React, { useReducer, useState } from "react";
 import { BsList } from "react-icons/bs";
@@ -35,6 +36,7 @@ const MobileNavbar = () => {
         {isOpen && <MobileMenu />}
       </div>
     </>
+
   );
 };
 
