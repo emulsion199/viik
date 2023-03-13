@@ -43,20 +43,19 @@ const Main = () => {
     5000
   );
   return (
+    // <RootTemplate>{mobile ?
+    // <>
+    // <MobileNavbar />
+    // <div className="w-screen h-[calc(100%-64px)] relative">
+    //   <Image className="transition-all ease-linear duration-300" alt="main" src={`img/main${BannerImageId}.png`} fill/>
+    // </div>
+    // </>
+    //  : <DesktopNavbar />}</RootTemplate>
     <RootTemplate>
-      {mobile ? (
-        <>
-          <MobileNavbar />
-          <div className='w-screen h-[calc(100%-64px)] relative'>
-            <Image className='transition-all ease-linear duration-300' alt='main' src={`img/main${BannerImageId}.png`} fill />
-            <div className='absolute bottom-20 flex w-full items-center justify-center'>
-              <span className='text-black te  xt-[24px] font-light'>Dark Plum</span>
-            </div>
-          </div>
-        </>
-      ) : (
-        <DesktopNavbar />
-      )}
+      <MobileNavbar />
+      <div className='w-screen h-[calc(100%-64px)] relative'>
+        <Image className='transition-all ease-linear duration-300' alt='main' src={`img/main${BannerImageId}.png`} fill />
+      </div>
     </RootTemplate>
   );
 };
