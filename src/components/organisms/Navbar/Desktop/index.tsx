@@ -3,6 +3,7 @@ import ICON_DesktopLogo from '#assets/logo/desktopLogo.svg';
 import ICON_MainLogo from '#assets/logo/default.svg';
 import Image from 'next/image';
 import useTextColorStore from 'src/store/useTextColor';
+import DesktopMenuModal from '#components/organisms/Menu/Desktop/DesktopMenuModal';
 
 interface ItemProps {
    title?: string;
@@ -10,10 +11,18 @@ interface ItemProps {
 }
 const Item = (props: ItemProps) => {
    const isBgDark = props.isBgDark;
+   const [isOpen, setIsOpen] = useState<boolean>(false);
    return (
-      <button style={isBgDark ? { color: 'white' } : { color: '#101011' }} className='text-base font-medium hover:'>
-         {props.title}
-      </button>
+      <span onMouseOver={() => setIsOpen(true)} onMouseOut={() => setIsOpen(false)} className='relative'>
+         {isOpen && (
+            <div className='absolute top-[-50px] left-[-24px] z-50'>
+               <DesktopMenuModal></DesktopMenuModal>
+            </div>
+         )}
+         <button style={isBgDark ? { color: 'white' } : { color: '#101011' }} className='text-base font-medium hover:'>
+            {props.title}
+         </button>
+      </span>
    );
 };
 
