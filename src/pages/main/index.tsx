@@ -48,7 +48,7 @@ const Main = () => {
    return mobile ? (
       <MobileMain imageSrc={`img/main${BannerImageId}.png`} FooterItems={FooterItems} />
    ) : (
-      <DesktopMain imageSrc={`img/main${BannerImageId}.png`} />
+      <DesktopMain imageSrc={`img/main${BannerImageId}.png`} FooterItems={FooterItems} />
    );
 };
 
