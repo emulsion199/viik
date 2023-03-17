@@ -18,12 +18,12 @@ const MobileFooter = (props: FooterProps) => {
          <Image src={ICON_LOGO} width={34} height={30} alt='logo' />
          {props.items.map(item => {
             return (
-               <button className='text-[14px]' onClick={() => console.log('press')}>
+               <button key={item.title} className='text-[14px]' onClick={() => console.log('press')}>
                   {item.title}
                </button>
             );
          })}
-         <span>{props.text}</span>
+         <span className='text-[11px]'>{props.text}</span>
       </div>
    );
 };
