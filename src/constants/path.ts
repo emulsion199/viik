@@ -1,5 +1,5 @@
 export const path = {
-  BASE: "/",
+  BASE: '/',
 
-  MyVIIK: "/my_viik",
+  MyVIIK: '/my_viik',
 };
