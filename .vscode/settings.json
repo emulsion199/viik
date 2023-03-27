@@ -1,32 +1,31 @@
 {
-  "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
-  "editor.formatOnPaste": false, // required
-  "editor.formatOnType": false, // required
-  "editor.formatOnSave": true, // optional
-  "editor.formatOnSaveMode": "file", // required to format on save
-  "files.autoSave": "onFocusChange", // optional but recommended
-  "vs-code-prettier-eslint.prettierLast": "false", // set as "true" to run 'prettier' last not first
-  "typescript.tsdk": "node_modules/typescript/lib",
+   "editor.formatOnPaste": false, // required
+   "editor.formatOnType": false, // required
+   "editor.formatOnSave": true, // optional
+   "editor.formatOnSaveMode": "file", // required to format on save
+   "files.autoSave": "onFocusChange", // optional but recommended
+   "vs-code-prettier-eslint.prettierLast": "false", // set as "true" to run 'prettier' last not first
+   "typescript.tsdk": "node_modules/typescript/lib",
 
-  // Disable the built-in CSS language features for tailwind functions
-  "css.validate": false,
-  "scss.validate": false,
+   // Disable the built-in CSS language features for tailwind functions
+   "css.validate": false,
+   "scss.validate": false,
 
-  "editor.quickSuggestions": {
-    // Enable the built-in CSS language features for tailwind classes
-    "strings": true
-  },
-  "files.associations": {
-    // Enable the built-in CSS language features for tailwind classes
-    "*.css": "tailwindcss"
-  },
+   "editor.quickSuggestions": {
+      // Enable the built-in CSS language features for tailwind classes
+      "strings": true
+   },
+   "files.associations": {
+      // Enable the built-in CSS language features for tailwind classes
+      "*.css": "tailwindcss"
+   },
 
-  "tailwindCSS.includeLanguages": {
-    "typescript": "javascript",
-    "typescriptreact": "javascript"
-  },
-  "tailwindCSS.experimental.classRegex": [
-    ["classed.*\\(([\\w\\W]*)\\)", "'(.*)'"],
-    ["cn*\\(([\\w\\W]*)\\)", "'(.*)'"]
-  ]
+   "tailwindCSS.includeLanguages": {
+      "typescript": "javascript",
+      "typescriptreact": "javascript"
+   },
+   "tailwindCSS.experimental.classRegex": [
+      ["classed.*\\(([\\w\\W]*)\\)", "'(.*)'"],
+      ["cn*\\(([\\w\\W]*)\\)", "'(.*)'"]
+   ]
 }

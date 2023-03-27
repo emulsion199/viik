@@ -1,29 +1,21 @@
-import Image from 'next/image';
-import React, { ReactNode } from 'react';
 import ICON_LOGO from '#assets/logo/default.svg';
+import { FooterItems } from '#constants/footer';
+import Image from 'next/image';
 
-export type FooterItemProps = {
-   title: string;
-   href: string;
-};
-
-export interface FooterProps {
-   items: FooterItemProps[];
-   text: string;
-}
-
-const MobileFooter = (props: FooterProps) => {
+const MobileFooter = () => {
+   const footerItems = FooterItems;
+   const { items, text } = footerItems;
    return (
       <div className='w-full flex px-9 py-12 space-y-9 bg-black text-white flex-col items-start'>
          <Image src={ICON_LOGO} width={34} height={30} alt='logo' />
-         {props.items.map(item => {
+         {items.map(item => {
             return (
                <button key={item.title} className='text-[14px]' onClick={() => console.log('press')}>
                   {item.title}
                </button>
             );
          })}
-         <span className='text-[11px]'>{props.text}</span>
+         <span className='text-[11px]'>{text}</span>
       </div>
    );
 };

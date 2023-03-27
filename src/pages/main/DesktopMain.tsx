@@ -1,11 +1,9 @@
-import DesktopFooter, { FooterProps } from '#components/organisms/Footer/Desktop';
+import DesktopFooter from '#components/organisms/Footer/Desktop';
 import DesktopNavbar from '#components/organisms/Navbar/Desktop';
 import Image from 'next/image';
-import React from 'react';
 
 interface Props {
    imageSrc: string;
-   FooterItems: FooterProps;
 }
 
 const DesktopMain = (props: Props) => {
@@ -17,7 +15,7 @@ const DesktopMain = (props: Props) => {
                <DesktopNavbar />
             </div>
          </div>
-         <DesktopFooter {...props.FooterItems} />
+         <DesktopFooter />
       </div>
    );
 };
