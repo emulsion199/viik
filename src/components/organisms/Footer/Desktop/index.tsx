@@ -1,7 +1,6 @@
-import Image from 'next/image';
-import React, { ReactNode } from 'react';
 import ICON_LOGO from '#assets/logo/desktopLogo.svg';
 import { FooterItems } from '#constants/footer';
+import Image from 'next/image';
 
 const DesktopFooter = () => {
    const footerItems = FooterItems;

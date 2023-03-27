@@ -1,11 +1,11 @@
 import React, { ReactNode } from 'react';
 
 interface RootTemplateProps {
-  children?: ReactNode;
+   children?: ReactNode;
 }
 
 const RootTemplate = (props: RootTemplateProps) => {
-  return <div className='w-screen h-screen bg-bg-default'>{props.children}</div>;
+   return <div className='w-screen h-screen bg-bg-default tracking-[-2%]'>{props.children}</div>;
 };
 
 export default RootTemplate;
