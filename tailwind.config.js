@@ -23,7 +23,7 @@ module.exports = {
    content: ['./src/**/*.{ts,tsx}'],
    theme: {
       fontFamily: {
-         sans: ['Pretendard-Medium'],
+         sans: ['Pretendard'],
       },
       colors: COLORS,
    },
