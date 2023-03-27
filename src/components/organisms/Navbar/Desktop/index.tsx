@@ -22,7 +22,7 @@ const Item = (props: ItemProps) => {
                </DesktopMenuModal>
             </div>
          )}
-         <button style={isBgDark ? { color: 'white' } : { color: '#101011' }} className='text-base font-medium hover:'>
+         <button style={isBgDark ? { color: 'white' } : { color: '#101011' }} className=' text-base font-medium hover:'>
             {props.title}
          </button>
       </span>
@@ -33,7 +33,7 @@ const DesktopNavbar = () => {
    const { isBgDark, setIsBgDark } = useTextColorStore();
    const [selectLogo, setSelectLogo] = useState(true); //hover 시 메인 로고로 변경
    return (
-      <div className='w-screen flex flex-col px-10 h-[251px] justify-between'>
+      <div className='relative w-full flex flex-col px-10 justify-between'>
          <div className='flex flex-row justify-between items-center'>
             <Item title='SHOP' isBgDark={isBgDark} />
             <span
@@ -61,7 +61,7 @@ const DesktopNavbar = () => {
                <Item title='MY VIIK' isBgDark={isBgDark} />
             </div>
          </div>
-         <span className='w-full'>
+         <span className='w-full absolute bottom-[-100px]'>
             <Item title='GO VIIKSTORY.COM' isBgDark={isBgDark} />
          </span>
       </div>

@@ -1,3 +1,4 @@
+import RootTemplate from '#components/Template/RootTemplate';
 import useInterval from '#utils/useInterval';
 import { useEffect, useState } from 'react';
 import { useMobile } from 'src/hooks/useMobile';
@@ -29,7 +30,7 @@ const Main = () => {
       }
    }, [BannerImageId]);
 
-   return mobile ? <MobileMain imageSrc={`img/main${BannerImageId}.png`} /> : <DesktopMain />;
+   return <RootTemplate>{mobile ? <MobileMain imageId={BannerImageId} /> : <DesktopMain imageId={BannerImageId} />}</RootTemplate>;
 };
 
 export default Main;

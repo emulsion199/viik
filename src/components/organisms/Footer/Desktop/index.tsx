@@ -6,7 +6,7 @@ const DesktopFooter = () => {
    const footerItems = FooterItems;
    const { items, text } = footerItems;
    return (
-      <div className='w-full flex px-32 py-20 space-x-[308px] bg-black text-white items-start'>
+      <div className=' flex px-32 py-20  bg-black text-white items-start'>
          <span className='text-[11px] flex'>{text}</span>
          <span className='column'>
             {items.map(item => {
