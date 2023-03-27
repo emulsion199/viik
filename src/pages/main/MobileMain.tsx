@@ -4,7 +4,7 @@ import RootTemplate from '#components/Template/RootTemplate';
 import Image from 'next/image';
 
 interface Props {
-   imageSrc: string;
+   imageId: number;
 }
 
 const MobileMain = (props: Props) => {

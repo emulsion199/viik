@@ -1,10 +1,22 @@
 import DesktopFooter from '#components/organisms/Footer/Desktop';
 import DesktopNavbar from '#components/organisms/Navbar/Desktop';
 
-const DesktopMain = () => {
+import React from 'react';
+
+const DesktopMain = (props: { imageId: number }) => {
+   const { imageId } = props;
    return (
       <>
-         <div className={"flex items-center w-full h-screen bg-cover bg-center bg-[url('/img/main_pc1.png')]"}>
+         <div
+            style={{
+               backgroundImage: 'url(' + `/img/main_pc${imageId}.png` + ')',
+               backgroundPosition: 'center',
+               backgroundSize: 'cover',
+               backgroundRepeat: 'no-repeat',
+               transition: 'all ease 1s',
+            }}
+            className={'flex items-center w-screen h-screen bg-cover bg-center'}
+         >
             <DesktopNavbar />
          </div>
          <DesktopFooter />

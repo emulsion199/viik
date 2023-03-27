@@ -5,7 +5,7 @@ interface RootTemplateProps {
 }
 
 const RootTemplate = (props: RootTemplateProps) => {
-   return <div className='w-screen h-screen bg-bg-default tracking-[-2%]'>{props.children}</div>;
+   return <div className='w-full h-full bg-bg-default '>{props.children}</div>;
 };
 
 export default RootTemplate;

@@ -16,11 +16,14 @@
    html,
    body,
    #__next {
-      @apply h-full min-h-full w-full select-none;
+      @apply overflow-x-hidden h-full min-h-full w-full select-none;
    }
 
    span {
-      @apply inline-block;
+      @apply inline-block tracking-tighter;
+   }
+   button {
+      @apply tracking-tighter;
    }
 
    th {
