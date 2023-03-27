@@ -1,11 +1,12 @@
-import Image from 'next/image';
-import React, { useReducer, useState } from 'react';
-import { BsList } from 'react-icons/bs';
-import { HiXMark } from 'react-icons/hi2';
-import MobileMenu from '../../Menu/Mobile/MobileMenu';
-import ICON_CANCEL from '#assets/icons/line/cancel.svg';
-import ICON_BURGER from '#assets/icons/line/burger.svg';
-import LOGO from '#assets/logo/default.svg';
+
+import Image from "next/image";
+import React, { useReducer, useState } from "react";
+import { BsList } from "react-icons/bs";
+import { HiXMark } from "react-icons/hi2";
+import MobileMenu from "../../Menu/Mobile/MobileMenu";
+import ICON_CANCEL from "#assets/icons/line/cancel.svg";
+import ICON_BURGER from "#assets/icons/line/burger.svg";
+import LOGO from "#assets/logo/default.svg";
 
 const MobileNavbar = () => {
   const [isOpen, setIsOpen] = useReducer(x => !x, false);

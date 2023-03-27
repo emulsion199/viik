@@ -1,24 +1,14 @@
-import DesktopFooter, { FooterProps } from '#components/organisms/Footer/Desktop';
+import DesktopFooter from '#components/organisms/Footer/Desktop';
 import DesktopNavbar from '#components/organisms/Navbar/Desktop';
-import Image from 'next/image';
-import React from 'react';
 
-interface Props {
-   imageSrc: string;
-   FooterItems: FooterProps;
-}
-
-const DesktopMain = (props: Props) => {
+const DesktopMain = () => {
    return (
-      <div className='w-screen h-screen'>
-         <div className='w-full h-full relative'>
-            <Image alt='main' src={props.imageSrc} fill className='z-0' />
-            <div className='absolute top-1/2'>
-               <DesktopNavbar />
-            </div>
+      <>
+         <div className={"flex items-center w-full h-screen bg-cover bg-center bg-[url('/img/main_pc1.png')]"}>
+            <DesktopNavbar />
          </div>
-         <DesktopFooter {...props.FooterItems} />
-      </div>
+         <DesktopFooter />
+      </>
    );
 };
 
