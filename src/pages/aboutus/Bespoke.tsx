@@ -61,8 +61,7 @@ const Bespoke = () => {
                <motion.div
                   className='column center'
                   initial={{ opacity: 0, x: '100%' }}
-                  animate={{ opacity: 1, x: '0%', transition: { duration: 1 } }}
-                  exit={{ opacity: 0, x: '-100%', transition: { duration: 1 } }}
+                  animate={{ opacity: 1, x: '0%', transition: { duration: 0.7 } }}
                >
                   <div className='column center'>
                      <span className='text-center text-lg leading-[21px] md:text-[40px] md:leading-[62px] font-light text-primary mb-2'>
