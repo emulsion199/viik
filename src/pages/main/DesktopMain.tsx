@@ -1,4 +1,5 @@
 import DesktopNavbar from '#components/organisms/Navbar/Desktop';
+import { motion } from 'framer-motion';
 import useBgStore from 'src/store/useTextColor';
 
 const DesktopMain = () => {
@@ -14,7 +15,9 @@ const DesktopMain = () => {
             }}
             className={'flex items-center w-screen h-screen '}
          >
-            <DesktopNavbar />
+            <motion.div className={'w-full'} layoutId='navbar'>
+               <DesktopNavbar />
+            </motion.div>
          </div>
       </>
    );

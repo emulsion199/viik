@@ -1,3 +1,4 @@
+import { AnimatePresence } from 'framer-motion';
 import { Html, Head, Main, NextScript } from 'next/document';
 
 export default function Document() {
@@ -10,7 +11,9 @@ export default function Document() {
             href='https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard-dynamic-subset.css'
          />
          <body className={''}>
-            <Main />
+            <AnimatePresence mode={'wait'}>
+               <Main />
+            </AnimatePresence>
             <NextScript />
          </body>
       </Html>
