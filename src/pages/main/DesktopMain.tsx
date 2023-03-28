@@ -1,25 +1,21 @@
-import DesktopFooter from '#components/organisms/Footer/Desktop';
 import DesktopNavbar from '#components/organisms/Navbar/Desktop';
+import useBgStore from 'src/store/useTextColor';
 
-import React from 'react';
-
-const DesktopMain = (props: { imageId: number }) => {
-   const { imageId } = props;
+const DesktopMain = () => {
+   const { imageId } = useBgStore();
    return (
       <>
          <div
             style={{
                backgroundImage: 'url(' + `/img/main_pc${imageId}.png` + ')',
-               backgroundPosition: 'center',
                backgroundSize: 'cover',
                backgroundRepeat: 'no-repeat',
-               transition: 'all ease 1s',
+               transition: 'background-image ease-in 0.5s',
             }}
-            className={'flex items-center w-screen h-screen bg-cover bg-center'}
+            className={'flex items-center w-screen h-screen '}
          >
             <DesktopNavbar />
          </div>
-         <DesktopFooter />
       </>
    );
 };

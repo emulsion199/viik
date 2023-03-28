@@ -1,21 +1,21 @@
-import MobileFooter from '#components/organisms/Footer/Mobile';
 import MobileNavbar from '#components/organisms/Navbar/Mobile';
-import RootTemplate from '#components/Template/RootTemplate';
-import Image from 'next/image';
+import useBgStore from 'src/store/useTextColor';
 
-interface Props {
-   imageId: number;
-}
-
-const MobileMain = (props: Props) => {
+const MobileMain = () => {
+   const { imageId } = useBgStore();
    return (
-      <RootTemplate>
+      <>
          <MobileNavbar />
-         <div className='w-screen h-[calc(100%-64px)] relative'>
-            <Image className='' alt='main' src={props.imageSrc} fill />
-         </div>
-         <MobileFooter />
-      </RootTemplate>
+         <div
+            style={{
+               backgroundImage: 'url(' + `/img/main${imageId}.png` + ')',
+               backgroundSize: 'cover',
+               backgroundRepeat: 'no-repeat',
+               transition: 'background-image ease-out 0.5s',
+            }}
+            className={'flex items-center w-screen h-screen '}
+         ></div>
+      </>
    );
 };
 
