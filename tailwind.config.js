@@ -26,6 +26,40 @@ module.exports = {
          sans: ['Pretendard'],
       },
       colors: COLORS,
+      extend: {
+         fontSize: {
+            p1: [
+               '12px',
+               {
+                  lineHeight: '18px',
+               },
+            ],
+            p2: [
+               '14px',
+               {
+                  lineHeight: '26px',
+               },
+            ],
+            p3: [
+               '16px',
+               {
+                  lineHeight: '28px',
+               },
+            ],
+            p4: [
+               '18px',
+               {
+                  lineHeight: '30px',
+               },
+            ],
+            h1: [
+               '24px',
+               {
+                  lineHeight: '34px',
+               },
+            ],
+         },
+      },
    },
 
    plugins: [require('@headlessui/tailwindcss')({ prefix: 'hui' })],
