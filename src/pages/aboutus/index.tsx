@@ -18,7 +18,7 @@ const index = () => {
          {mobile ? (
             <MobileNavbar />
          ) : (
-            <motion.div className={'w-full sticky top-0 bg-[rgba(250,241,229,0.6)] backdrop-blur-sm active:text-black'} layoutId='navbar'>
+            <motion.div className={'z-always w-full sticky top-0 bg-[rgba(250,241,229,0.6)] backdrop-blur-sm'} layoutId='navbar'>
                <DesktopNavbar />
             </motion.div>
          )}
