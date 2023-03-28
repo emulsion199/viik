@@ -49,7 +49,7 @@ const DesktopNavbar = () => {
    const { imageId } = useBgStore();
    const type = useRouteHook();
    return (
-      <div className='relative w-full flex flex-col px-10 justify-between'>
+      <div className=' w-full flex flex-col px-10 justify-between'>
          <div className='flex flex-row justify-between items-center'>
             <Item title='SHOP' />
             <span

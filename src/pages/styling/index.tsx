@@ -19,14 +19,14 @@ const StylingPage = () => {
             {mobile ? (
                <MobileNavbar />
             ) : (
-               <motion.div className={'w-full'} layoutId='navbar'>
+               <motion.div className={'w-full sticky top-0 bg-[rgba(250,241,229,0.6)] backdrop-blur-sm'} layoutId='navbar'>
                   <DesktopNavbar />
                </motion.div>
             )}
             <p className='whitespace-pre-wrap text-center pt-[60px] pb-12'>
                {'VIIK Styling, 더욱 나에게 맞는 공간을 완성해보세요. \n라이프스타일에 맞는 스타일링을 제안드립니다.'}
             </p>
-            <ConsultFormRegister className={'w-[380px] p-6'} />
+            <ConsultFormRegister className={'w-[400px] p-6'} />
          </div>
       </RootTemplate>
    );

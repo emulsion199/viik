@@ -32,39 +32,42 @@ const ConsultFormRegister = (props: Props) => {
    const { control, formState, handleSubmit } = useConsultFormRegister();
    const name = useController({ control, name: 'name' });
    const phone = useController({ control, name: 'phone' });
-   const type = useController({ control, name: 'type' });
+   const address = useController({ control, name: 'address' });
+   const addreess_detail = useController({ control, name: 'address_detail' });
+
    const privacyAccept = useController({ control, name: 'privacyAccept' });
    const submit = React.useCallback((data: ConsultFormRegisterData) => {
-      const { name, phone, type, privacyAccept } = data;
-      console.log(name, phone, type, privacyAccept);
+      const { name, phone, address, address_detail, privacyAccept } = data;
    }, []);
    //HYDRATION ERROR
    const mounted = useMount();
    return (
       <form className={cc('column flex-1 gap-7', className)} onSubmit={handleSubmit(submit)}>
-         <Label title={'이름'}>
+         <Label title={'홈스타일링 받을 분 성함'}>
             <Input placeholder={'이름'} {...name.field} error={formState.errors.name && true} />
             <span className={'text-xs text-error'}>{formState.errors.name?.message}</span>
          </Label>
-         <Label title={'연락처'}>
+         <Label title={'제안서를 받을 연락처'}>
             <Input placeholder={'010-0000-0000'} {...phone.field} error={formState.errors.phone && true} />
             <span className={'text-xs text-error'}>{formState.errors.phone?.message}</span>
          </Label>
-         <Label title={'어떤 제품을 찾고 계신가요?'}>
-            <RadioGroup className={'column gap-3'} {...type.field}>
-               <RadioGroup.Option value={'소파'} className={RadioButtonStyle}>
-                  <div className={RadioIcon} />
-                  {'소파'}
-               </RadioGroup.Option>
-               <RadioGroup.Option value={'테이블'} className={RadioButtonStyle}>
-                  <div className={RadioIcon} />
-                  {'테이블'}
-               </RadioGroup.Option>
-               <RadioGroup.Option value={'기타'} className={RadioButtonStyle}>
-                  <div className={RadioIcon} />
-                  {'이미 추천 받았어요'}
-               </RadioGroup.Option>
-            </RadioGroup>
+         <Label title={'주소 검색'}>
+            <div className={'row gap-[10px]'}>
+               <Input
+                  className={'w-[266px]'}
+                  placeholder={'예) 문래동 강서타워, 선유로 82'}
+                  {...address.field}
+                  error={formState.errors.phone && true}
+               />
+               <Button className={'h-12 w-[104px]'} primary>
+                  {'검색'}
+               </Button>
+            </div>
+            {formState.errors.address && <span className={'text-xs text-error'}>{formState.errors.address?.message}</span>}
+         </Label>
+         <Label title={'상세 주소'}>
+            <Input placeholder={'상세주소'} {...addreess_detail.field} error={formState.errors.phone && true} />
+            <span className={'text-xs text-error'}>{formState.errors.address_detail?.message}</span>
          </Label>
          <div className={'row justify-between'}>
             {mounted && (
