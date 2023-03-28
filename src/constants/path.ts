@@ -1,4 +1,5 @@
-export const path = {
-  BASE: '/',
-  MyVIIK: '/my_viik',
+const BASE = '/';
+export const PATH = {
+   main: BASE + 'main',
+   MyVIIK: BASE + 'my_viik',
 };

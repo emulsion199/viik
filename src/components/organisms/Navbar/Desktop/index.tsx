@@ -1,11 +1,12 @@
 import ICON_MainLogo from '#assets/logo/default.svg';
 import ICON_DesktopLogo from '#assets/logo/desktopLogo.svg';
-import Shop from '#components/organisms/Menu/Desktop/DesktopMenuItem.tsx/Shop';
-import DesktopMenuModal from '#components/organisms/Menu/Desktop/DesktopMenuModal';
+
 import Image from 'next/image';
 import React from 'react';
 import { useCallback, useState } from 'react';
 import useBgStore from 'src/store/useTextColor';
+import Shop from './DesktopMenuItem.tsx/Shop';
+import DesktopMenuModal from './DesktopMenuModal';
 
 interface ItemProps {
    title?: string;
@@ -13,7 +14,7 @@ interface ItemProps {
 const Item = (props: ItemProps) => {
    const { title } = props;
    const { imageId } = useBgStore();
-   const [isOpen, setIsOpen] = useState<boolean>(false);
+   const [isOpen, setIsOpen] = useState<boolean>(true);
 
    const hoverHandle = React.useCallback(() => {
       if (title === 'SHOP') setIsOpen(true);
