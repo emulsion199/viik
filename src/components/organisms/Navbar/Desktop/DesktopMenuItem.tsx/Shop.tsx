@@ -1,6 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
 import ICON_MainLogo from '#assets/logo/default.svg';
+import { motion } from 'framer-motion';
+
 const Shop = () => {
    const [focused, setFocused] = React.useState(false);
 

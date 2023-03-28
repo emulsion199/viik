@@ -1,5 +1,6 @@
 import ICON_MainLogo from '#assets/logo/default.svg';
 import ICON_DesktopLogo from '#assets/logo/desktopLogo.svg';
+import { AnimatePresence, motion } from 'framer-motion';
 
 import Image from 'next/image';
 import React from 'react';
@@ -14,20 +15,20 @@ interface ItemProps {
 const Item = (props: ItemProps) => {
    const { title } = props;
    const { imageId } = useBgStore();
-   const [isOpen, setIsOpen] = useState<boolean>(true);
+   const [isOpen, setIsOpen] = useState<boolean>(false);
 
    const hoverHandle = React.useCallback(() => {
       if (title === 'SHOP') setIsOpen(true);
    }, []);
    return (
       <span onMouseOver={hoverHandle} onMouseOut={() => setIsOpen(false)} className='relative'>
-         {isOpen && (
-            <div className='absolute top-[-50px] left-[-24px] z-50'>
+         <AnimatePresence>
+            {isOpen && (
                <DesktopMenuModal>
                   <Shop />
                </DesktopMenuModal>
-            </div>
-         )}
+            )}
+         </AnimatePresence>
          <button style={{ color: imageId !== 3 ? 'white' : '#101011', transition: 'all ease 1s' }} className=' text-base hover:'>
             {title}
          </button>
