@@ -10,7 +10,7 @@ const MobileNavbar = () => {
 
    return (
       <>
-         <div className='sticky top-0 w-full h-16 row bg-black text-white text-sm justify-between items-center px-4'>
+         <div className='sticky top-0 w-full h-16 row bg-black text-white text-sm justify-between items-center px-4 z-always'>
             <button className='flex h-full justify-center items-center' onClick={setIsOpen}>
                {isOpen ? (
                   <Image src={ICON_CANCEL} alt={'cancel'} width={24} height={24} />

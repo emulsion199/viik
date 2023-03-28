@@ -6,9 +6,22 @@ import Image from 'next/image';
 import Footer from '#components/organisms/Footer';
 import Viik from './Viik';
 import Bespoke from './Bespoke';
+import { useMobile } from '#hooks/useMobile';
+import MobileNavbar from '#components/organisms/Navbar/Mobile';
+import { motion } from 'framer-motion';
+import DesktopNavbar from '#components/organisms/Navbar/Desktop';
 const index = () => {
+   const mobile = useMobile();
+
    return (
       <RootTemplate>
+         {mobile ? (
+            <MobileNavbar />
+         ) : (
+            <motion.div className={'w-full sticky top-0 bg-[rgba(250,241,229,0.6)] backdrop-blur-sm active:text-black'} layoutId='navbar'>
+               <DesktopNavbar />
+            </motion.div>
+         )}
          <Tab.Group>
             <Tab.List className='h-12 w-full border-b border-b-gray-3 row md:text-p3 text-p2 font-medium'>
                <Tab className={'w-1/2 aria-selected:bg-primary aria-selected:text-white outline-none'}>VIIK</Tab>
