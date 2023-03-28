@@ -1,13 +1,13 @@
 import { create } from 'zustand';
 
 interface Props {
-   isBgDark: boolean;
-   setIsBgDark: (previous: boolean) => void;
+   imageId: number;
+   setImageId: (imageId: number) => void;
 }
 
-const useTextColorStore = create<Props>(set => ({
-   isBgDark: false,
-   setIsBgDark: (isDark: boolean) => set(state => ({ isBgDark: isDark })),
+const useBgStore = create<Props>(set => ({
+   imageId: 1,
+   setImageId: (imageId: number) => set(state => ({ imageId: imageId })),
 }));
 
-export default useTextColorStore;
+export default useBgStore;
