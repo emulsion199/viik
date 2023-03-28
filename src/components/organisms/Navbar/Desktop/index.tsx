@@ -73,7 +73,9 @@ const DesktopNavbar = () => {
             </span>
             <div className='space-x-12'>
                <Item title='MAGAZINE' />
-               <Item title='ABOUT US' />
+               <Link href={PATH.aboutus}>
+                  <Item title='ABOUT US' />
+               </Link>
             </div>
             <div className='space-x-12'>
                <Link href={PATH.styling}>
