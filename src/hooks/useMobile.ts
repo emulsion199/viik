@@ -1,14 +1,11 @@
-import React, { useEffect } from 'react';
-import isMobile from 'is-mobile';
+import { useMediaQuery } from 'react-responsive';
 
-export const useMobile = () => {
-  const [mobile, setMobile] = React.useState(false);
-  React.useEffect(() => {
-    if (isMobile()) {
-      setMobile(true);
-    } else {
-      setMobile(false);
-    }
-  }, []);
-  return mobile;
+/**
+ *
+ * @param width
+ * @returns 모바일 최대크기
+ */
+export const useMobile = (width: number) => {
+   const mobile = useMediaQuery({ query: `(max-width:${width}px)` });
+   return mobile;
 };

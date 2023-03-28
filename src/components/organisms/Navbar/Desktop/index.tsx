@@ -49,7 +49,7 @@ const DesktopNavbar = () => {
                <button className=''>
                   {
                      <Image
-                        className={`transition ease-out duration-1000  ${imageId === 3 ? 'invert' : ''}`}
+                        className={`transition ease-in duration-500  ${imageId === 3 ? 'invert' : ''}`}
                         alt='Desktop Logo'
                         src={selectLogo ? ICON_DesktopLogo : ICON_MainLogo}
                         width={selectLogo ? 128 : 80}
