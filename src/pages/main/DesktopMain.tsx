@@ -10,7 +10,7 @@ const DesktopMain = () => {
                backgroundImage: 'url(' + `/img/main_pc${imageId}.png` + ')',
                backgroundSize: 'cover',
                backgroundRepeat: 'no-repeat',
-               transition: 'background-image ease-in 0.5s',
+               transition: 'background-image ease-in ease-out 0.5s',
             }}
             className={'flex items-center w-screen h-screen '}
          >
