@@ -8,4 +8,7 @@
   .z-always {
     z-index: 9999;
   }
+  .center{
+    @apply flex justify-center items-center;
+  }
 }
