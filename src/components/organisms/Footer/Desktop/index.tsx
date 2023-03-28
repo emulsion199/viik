@@ -11,7 +11,7 @@ const DesktopFooter = () => {
          <span className='flex flex-col'>
             {items.map(item => {
                return (
-                  <button key={item.title} className='text-p2 text-start' onClick={() => console.log('press')}>
+                  <button key={item.title} className='text-p2 text-start whitespace-nowrap' onClick={() => console.log('press')}>
                      {item.title}
                   </button>
                );

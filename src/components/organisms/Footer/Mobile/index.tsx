@@ -6,7 +6,7 @@ const MobileFooter = () => {
    const footerItems = FooterItems;
    const { items, text } = footerItems;
    return (
-      <div className='w-full flex px-9 py-12 space-y-9 bg-black text-white flex-col items-start'>
+      <div className='w-full flex px-16 py-12 space-y-9 bg-black text-white flex-col items-start'>
          <Image src={ICON_LOGO} width={34} height={30} alt='logo' />
          {items.map(item => {
             return (
