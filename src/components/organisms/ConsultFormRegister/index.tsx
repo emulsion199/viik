@@ -11,14 +11,6 @@ import { useController } from 'react-hook-form';
 import React from 'react';
 
 //STYLE
-const RadioIcon = cc(
-   'w-6 h-6 rounded-full absolute border-gray-2 border left-3',
-   'hui-checked:border-[6px] hui-checked:border-primary hui-checked:bg-white'
-);
-const RadioButtonStyle = cc(
-   'hui-checked:border-2 hui-checked:border-primary hui-checked:bg-bg-hover',
-   'cursor-pointer border-gray-2 border row h-12 relative items-center justify-center'
-);
 const ToggleStyle = cc('w-5 h-5 rounded-[3.33px] border border-gray-1 ');
 const ToggleSelectedStyle = cc('bg-black w-5 h-5 rounded-[3.33px]');
 
@@ -38,6 +30,7 @@ const ConsultFormRegister = (props: Props) => {
    const privacyAccept = useController({ control, name: 'privacyAccept' });
    const submit = React.useCallback((data: ConsultFormRegisterData) => {
       const { name, phone, address, address_detail, privacyAccept } = data;
+      console.log(data);
    }, []);
    //HYDRATION ERROR
    const mounted = useMount();
@@ -57,7 +50,7 @@ const ConsultFormRegister = (props: Props) => {
                   className={'w-[266px]'}
                   placeholder={'예) 문래동 강서타워, 선유로 82'}
                   {...address.field}
-                  error={formState.errors.phone && true}
+                  error={formState.errors.address && true}
                />
                <Button className={'h-12 w-[104px]'} primary>
                   {'검색'}
@@ -66,7 +59,7 @@ const ConsultFormRegister = (props: Props) => {
             {formState.errors.address && <span className={'text-xs text-error'}>{formState.errors.address?.message}</span>}
          </Label>
          <Label title={'상세 주소'}>
-            <Input placeholder={'상세주소'} {...addreess_detail.field} error={formState.errors.phone && true} />
+            <Input placeholder={'상세주소'} {...addreess_detail.field} error={formState.errors.address_detail && true} />
             <span className={'text-xs text-error'}>{formState.errors.address_detail?.message}</span>
          </Label>
          <div className={'row justify-between'}>
@@ -86,9 +79,9 @@ const ConsultFormRegister = (props: Props) => {
 
             <p className={'underline'}>{'자세히보기'}</p>
          </div>
-         <p className={'text-xs -mt-7 text-error'}>{formState.errors.privacyAccept?.message}</p>
+         <p className={'text-xs -mt-7 text-error pt-1'}>{formState.errors.privacyAccept?.message}</p>
 
-         <Button disabled={formState.isSubmitting || !formState.isValid} className={'mt-2'} type={'button'} primary>
+         <Button disabled={formState.isSubmitting} className={'mt-2'} type={'submit'} primary>
             {'상담 신청하기'}
          </Button>
          <Button className={'-mt-1'} border>
