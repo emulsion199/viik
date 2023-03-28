@@ -35,15 +35,16 @@ const ConsultFormRegister = (props: Props) => {
    //HYDRATION ERROR
    const mounted = useMount();
    return (
-      <form className={cc('column flex-1 gap-7', className)} onSubmit={handleSubmit(submit)}>
+      <form className={cc('column flex-1 gap-1', className)} onSubmit={handleSubmit(submit)}>
          <Label title={'홈스타일링 받을 분 성함'}>
             <Input placeholder={'이름'} {...name.field} error={formState.errors.name && true} />
-            <span className={'text-xs text-error'}>{formState.errors.name?.message}</span>
+            <span className={'text-xs text-error'}>{formState.errors.name?.message}&nbsp;</span>
          </Label>
          <Label title={'제안서를 받을 연락처'}>
             <Input placeholder={'010-0000-0000'} {...phone.field} error={formState.errors.phone && true} />
-            <span className={'text-xs text-error'}>{formState.errors.phone?.message}</span>
+            <span className={'text-xs text-error'}>{formState.errors.phone?.message}&nbsp;</span>
          </Label>
+
          <Label title={'주소 검색'}>
             <div className={'row gap-[10px]'}>
                <Input
@@ -56,13 +57,12 @@ const ConsultFormRegister = (props: Props) => {
                   {'검색'}
                </Button>
             </div>
-            {formState.errors.address && <span className={'text-xs text-error'}>{formState.errors.address?.message}</span>}
+            <span className={'text-xs text-error'}>{formState.errors.address?.message}&nbsp;</span>
          </Label>
          <Label title={'상세 주소'}>
             <Input placeholder={'상세주소'} {...addreess_detail.field} error={formState.errors.address_detail && true} />
-            <span className={'text-xs text-error'}>{formState.errors.address_detail?.message}</span>
          </Label>
-         <div className={'row justify-between'}>
+         <div className={'row justify-between pt-7'}>
             {mounted && (
                <Switch.Group {...privacyAccept.field}>
                   <Switch className={'row gap-2 items-center relative'}>
@@ -79,7 +79,7 @@ const ConsultFormRegister = (props: Props) => {
 
             <p className={'underline'}>{'자세히보기'}</p>
          </div>
-         <p className={'text-xs -mt-7 text-error pt-1'}>{formState.errors.privacyAccept?.message}</p>
+         <p className={'text-xs text-error pt-1'}>{formState.errors.privacyAccept?.message}&nbsp;</p>
 
          <Button disabled={formState.isSubmitting} className={'mt-2'} type={'submit'} primary>
             {'상담 신청하기'}
