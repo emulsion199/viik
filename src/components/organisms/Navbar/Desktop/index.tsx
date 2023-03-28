@@ -67,7 +67,7 @@ const DesktopNavbar = () => {
                <Item title='MY VIIK' />
             </div>
          </div>
-         <span className='w-full absolute bottom-[-100px]'>
+         <span className='w-full absolute bottom-[-150px]'>
             <Item title='GO VIIKSTORY.COM' />
          </span>
       </div>

@@ -11,7 +11,7 @@ const MobileMain = () => {
                backgroundImage: 'url(' + `/img/main${imageId}.png` + ')',
                backgroundSize: 'cover',
                backgroundRepeat: 'no-repeat',
-               transition: 'all ease-out 1s',
+               transition: 'background-image ease-out 0.5s',
             }}
             className={'flex items-center w-screen h-screen '}
          ></div>
