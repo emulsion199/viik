@@ -28,10 +28,10 @@ const index = () => {
                <Tab className={'w-1/2 aria-selected:bg-primary aria-selected:text-white outline-none'}>BESPOKE</Tab>
             </Tab.List>
             <Tab.Panels>
-               <Tab.Panel className={'column center py-[110px] md:py-[220px] bg-bg-default'}>
+               <Tab.Panel className={'column center py-[80px] md:py-[160px] bg-bg-default'}>
                   <Viik />
                </Tab.Panel>
-               <Tab.Panel className={'column center py-[110px] md:py-[220px] bg-bg-default'}>
+               <Tab.Panel className={'column center py-[80px] md:py-[160px] bg-bg-default'}>
                   <Bespoke />
                </Tab.Panel>
             </Tab.Panels>

@@ -63,8 +63,8 @@ const Bespoke = () => {
                   initial={{ opacity: 0, x: '100%' }}
                   animate={{ opacity: 1, x: '0%', transition: { duration: 0.7 } }}
                >
-                  <div className='column center'>
-                     <span className='text-center text-lg leading-[21px] md:text-[40px] md:leading-[62px] font-light text-primary mb-2'>
+                  <div className=' center flex flex-col-reverse md:flex-col gap-4'>
+                     <span className='text-center text-lg leading-[21px] md:text-[40px] md:leading-[62px] font-light text-primary'>
                         {title}
                      </span>
                      <span className='text-center text-p2 md:text-h1 font-medium'>{subtitle}</span>
