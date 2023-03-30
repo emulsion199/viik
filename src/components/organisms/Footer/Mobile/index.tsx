@@ -1,6 +1,7 @@
 import ICON_LOGO from '#assets/logo/default.svg';
 import { FooterItems } from '#constants/footer';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const MobileFooter = () => {
    const footerItems = FooterItems;
@@ -10,9 +11,11 @@ const MobileFooter = () => {
          <Image src={ICON_LOGO} width={34} height={30} alt='logo' />
          {items.map(item => {
             return (
-               <button key={item.title} className='text-[14px]' onClick={() => console.log('press')}>
-                  {item.title}
-               </button>
+               <Link href={item.href}>
+                  <button key={item.title} className='text-[14px]'>
+                     {item.title}
+                  </button>
+               </Link>
             );
          })}
          <span className='text-[11px]'>{text}</span>

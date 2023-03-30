@@ -10,7 +10,12 @@ import { useMobile } from '#hooks/useMobile';
 import MobileNavbar from '#components/organisms/Navbar/Mobile';
 import { motion } from 'framer-motion';
 import DesktopNavbar from '#components/organisms/Navbar/Desktop';
+import useBgStore from 'src/store/useTextColor';
 const index = () => {
+   const { setImageId } = useBgStore();
+   React.useEffect(() => {
+      setImageId(3);
+   }, []);
    const mobile = useMobile();
 
    return (
