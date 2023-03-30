@@ -72,7 +72,9 @@ const DesktopNavbar = () => {
                </button>
             </span>
             <div className='space-x-12'>
-               <Item title='MAGAZINE' />
+               <Link href={PATH.magazine}>
+                  <Item title='MAGAZINE' />
+               </Link>
                <Link href={PATH.aboutus}>
                   <Item title='ABOUT US' />
                </Link>
