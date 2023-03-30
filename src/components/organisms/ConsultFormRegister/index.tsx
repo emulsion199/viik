@@ -1,15 +1,15 @@
+import ICON_CHECK from '#assets/icons/form/check.svg';
+import { useMount } from '#hooks/useMount';
+import { cc, formatPhone } from '#utils/string';
+import { Switch } from '@headlessui/react';
+import Image from 'next/image';
+import React from 'react';
+import { useDaumPostcodePopup } from 'react-daum-postcode';
+import { useController } from 'react-hook-form';
 import { Button } from 'src/atoms/Button';
 import { Input } from 'src/atoms/Input';
 import { Label } from 'src/atoms/Label';
-import { RadioGroup, Switch } from '@headlessui/react';
-import { cc } from '#utils/string';
-import ICON_CHECK from '#assets/icons/form/check.svg';
-import Image from 'next/image';
-import { useMount } from '#hooks/useMount';
 import useConsultFormRegister, { ConsultFormRegisterData } from './form';
-import { useController } from 'react-hook-form';
-import React from 'react';
-import DaumPostcodeEmbed, { useDaumPostcodePopup } from 'react-daum-postcode';
 
 //STYLE
 const ToggleStyle = cc('w-5 h-5 rounded-[3.33px] border border-gray-1 ');
@@ -22,11 +22,12 @@ interface Props {
 const ConsultFormRegister = (props: Props) => {
    const { className } = props;
    //FORM
-   const { control, formState, handleSubmit, trigger } = useConsultFormRegister();
+   const { control, formState, handleSubmit, setValue } = useConsultFormRegister();
    const name = useController({ control, name: 'name' });
    const phone = useController({ control, name: 'phone' });
    const address = useController({ control, name: 'address' });
    const addreess_detail = useController({ control, name: 'address_detail' });
+   const address_valid = useController({ control, name: 'address_valid' });
 
    const privacyAccept = useController({ control, name: 'privacyAccept' });
    const submit = React.useCallback((data: ConsultFormRegisterData) => {
@@ -52,11 +53,10 @@ const ConsultFormRegister = (props: Props) => {
          fullAddress += extraAddress !== '' ? ` (${extraAddress})` : '';
       }
 
-      console.log(fullAddress); // e.g. '서울 성동구 왕십리로2길 20 (성수동1가)'
+      setValue('address', fullAddress, { shouldValidate: true });
+      setValue('address_valid', true, { shouldValidate: true });
    };
    const handleClick = async () => {
-      const res = await trigger('address');
-      if (!res) return;
       open({ onComplete: handleComplete, defaultQuery: address.field.value });
    };
    return (
@@ -66,13 +66,22 @@ const ConsultFormRegister = (props: Props) => {
             <span className={'text-xs text-error'}>{formState.errors.name?.message}&nbsp;</span>
          </Label>
          <Label title={'제안서를 받을 연락처'}>
-            <Input placeholder={'010-0000-0000'} {...phone.field} error={formState.errors.phone && true} />
+            <Input
+               placeholder={'010-0000-0000'}
+               {...phone.field}
+               error={formState.errors.phone && true}
+               onChange={e => {
+                  phone.field.onChange(e);
+                  setValue('phone', formatPhone(e.target.value));
+               }}
+            />
             <span className={'text-xs text-error'}>{formState.errors.phone?.message}&nbsp;</span>
          </Label>
          <Label title={'주소 검색'}>
             <div className={'row gap-[10px]'}>
                <Input
-                  className={'w-[266px]'}
+                  disabled={address_valid.field.value}
+                  className={'w-[266px] '}
                   placeholder={'예) 문래동 강서타워, 선유로 82'}
                   {...address.field}
                   error={formState.errors.address && true}
@@ -104,7 +113,7 @@ const ConsultFormRegister = (props: Props) => {
             <p className={'underline'}>{'자세히보기'}</p>
          </div>
          <p className={'text-xs text-error pt-1'}>{formState.errors.privacyAccept?.message}&nbsp;</p>
-         <Button disabled={formState.isSubmitting} className={'mt-2'} type={'submit'} primary>
+         <Button disabled={formState.isSubmitting} className={'mt-2 mb-5'} type={'submit'} primary>
             {'상담 신청하기'}
          </Button>
          <Button className={'-mt-1'} border>
