@@ -9,7 +9,7 @@ const DesktopMenuModal = (props: DesktopMenuModalProps) => {
       <motion.div
          className='absolute top-[-24px] left-[-24px] z-50'
          initial={{ opacity: 0, scale: 0.98 }}
-         exit={{ opacity: 0, scale: 0.98, transition: { duration: 0 } }}
+         exit={{ opacity: 0, scale: 0.98, transition: { duration: 0.1 } }}
          animate={{ opacity: 1, scale: 1 }}
       >
          <span className='w-[450px] bg-primary px-[24px] py-[24px]'>{props.children}</span>
