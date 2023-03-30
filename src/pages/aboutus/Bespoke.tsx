@@ -26,6 +26,7 @@ const Bespoke = () => {
          });
       }
    }, [number]);
+
    const Bespoke_Main = () => {
       const mobile = useMobile();
       return (
@@ -78,7 +79,7 @@ const Bespoke = () => {
                                  setChooseNumber(previous => [...previous, item.items_id]);
                               }}
                               key={item.items_id}
-                              className='h-14 text-p2 bg-white text-black md:text-p3 font-medium hover:bg-black hover:text-white'
+                              className='h-14 text-p2 bg-white text-black md:text-p3 font-medium active:bg-black active:text-white  md:hover:bg-black md:hover:text-white'
                            >
                               {item.title}
                            </button>
