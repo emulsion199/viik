@@ -6,6 +6,7 @@ import useBgStore from 'src/store/useTextColor';
 import { motion } from 'framer-motion';
 import { useMobile } from '#hooks/useMobile';
 import MobileNavbar from '#components/organisms/Navbar/Mobile';
+import Footer from '#components/organisms/Footer';
 const StylingPage = () => {
    const { setImageId } = useBgStore();
    React.useEffect(() => {
@@ -15,7 +16,7 @@ const StylingPage = () => {
    const mobile = useMobile(800);
    return (
       <RootTemplate>
-         <div className={'column justify-center items-center flex-1 bg-bg-default transition-all duration-1000'}>
+         <div className={'column z-50 pb-[214px] justify-center items-center flex-1 bg-bg-default transition-all duration-1000'}>
             {mobile ? (
                <MobileNavbar />
             ) : (
@@ -26,8 +27,9 @@ const StylingPage = () => {
             <p className='whitespace-pre-wrap text-center pt-[60px] pb-12'>
                {'VIIK Styling, 더욱 나에게 맞는 공간을 완성해보세요. \n라이프스타일에 맞는 스타일링을 제안드립니다.'}
             </p>
-            <ConsultFormRegister className={'w-[400px] p-6'} />
+            <ConsultFormRegister className={'w-[428px] px-6'} />
          </div>
+         <Footer />
       </RootTemplate>
    );
 };
