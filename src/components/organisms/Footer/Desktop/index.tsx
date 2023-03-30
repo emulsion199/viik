@@ -6,12 +6,12 @@ const DesktopFooter = () => {
    const footerItems = FooterItems;
    const { items, text } = footerItems;
    return (
-      <div className=' flex px-32 py-20  bg-black text-white items-start'>
+      <div className={'row px-32 py-20 bg-black text-white items-start justify-between space-x-10'}>
          <span className='whitespace-pre-wrap text-[11px] max-w-[300px]'>{text}</span>
-         <span className='column'>
+         <span className='flex flex-col'>
             {items.map(item => {
                return (
-                  <button key={item.title} className='text-[14px] text-start w-28' onClick={() => console.log('press')}>
+                  <button key={item.title} className='text-p2 text-start whitespace-nowrap' onClick={() => console.log('press')}>
                      {item.title}
                   </button>
                );
