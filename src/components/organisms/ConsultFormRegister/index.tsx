@@ -9,6 +9,7 @@ import { useController } from 'react-hook-form';
 import { Button } from 'src/atoms/Button';
 import { Input } from 'src/atoms/Input';
 import { Label } from 'src/atoms/Label';
+import useConsultStore from 'src/store/useConsultStore';
 import useConsultFormRegister, { ConsultFormRegisterData } from './form';
 
 //STYLE
@@ -21,6 +22,8 @@ interface Props {
 }
 const ConsultFormRegister = (props: Props) => {
    const { className } = props;
+   //STORE
+   const { setLevel } = useConsultStore();
    //FORM
    const { control, formState, handleSubmit, setValue } = useConsultFormRegister();
    const name = useController({ control, name: 'name' });
@@ -32,6 +35,7 @@ const ConsultFormRegister = (props: Props) => {
    const privacyAccept = useController({ control, name: 'privacyAccept' });
    const submit = React.useCallback((data: ConsultFormRegisterData) => {
       const { name, phone, address, address_detail, privacyAccept } = data;
+      setLevel(2);
       console.log(data);
    }, []);
    //HYDRATION ERROR
@@ -95,20 +99,18 @@ const ConsultFormRegister = (props: Props) => {
          <Label title={'상세 주소'}>
             <Input placeholder={'상세주소'} {...addreess_detail.field} error={formState.errors.address_detail && true} />
          </Label>
-         <div className={'row justify-between pt-7'}>
-            {mounted && (
-               <Switch.Group {...privacyAccept.field}>
-                  <Switch className={'row gap-2 items-center relative'}>
-                     {({ checked }) => (
-                        <>
-                           <div className={checked ? ToggleSelectedStyle : ToggleStyle}></div>
-                           {checked && <Image className={'absolute'} src={ICON_CHECK} alt={'checked'} width={20} height={20}></Image>}
-                           <span>{'개인정보 수집 이용 동의'}</span>
-                        </>
-                     )}
-                  </Switch>
-               </Switch.Group>
-            )}
+         <div className={'row justify-between pt-7 z-0'}>
+            <Switch.Group {...privacyAccept.field}>
+               <Switch className={'row gap-2 items-center relative z-0'}>
+                  {({ checked }) => (
+                     <>
+                        <div className={checked ? ToggleSelectedStyle : ToggleStyle}></div>
+                        {checked && <Image className={'absolute '} src={ICON_CHECK} alt={'checked'} width={20} height={20}></Image>}
+                        <span>{'개인정보 수집 이용 동의'}</span>
+                     </>
+                  )}
+               </Switch>
+            </Switch.Group>
 
             <p className={'underline'}>{'자세히보기'}</p>
          </div>
