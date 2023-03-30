@@ -9,6 +9,7 @@ import { useMount } from '#hooks/useMount';
 import useConsultFormRegister, { ConsultFormRegisterData } from './form';
 import { useController } from 'react-hook-form';
 import React from 'react';
+import DaumPostcodeEmbed, { useDaumPostcodePopup } from 'react-daum-postcode';
 
 //STYLE
 const ToggleStyle = cc('w-5 h-5 rounded-[3.33px] border border-gray-1 ');
@@ -21,7 +22,7 @@ interface Props {
 const ConsultFormRegister = (props: Props) => {
    const { className } = props;
    //FORM
-   const { control, formState, handleSubmit } = useConsultFormRegister();
+   const { control, formState, handleSubmit, trigger } = useConsultFormRegister();
    const name = useController({ control, name: 'name' });
    const phone = useController({ control, name: 'phone' });
    const address = useController({ control, name: 'address' });
@@ -34,6 +35,30 @@ const ConsultFormRegister = (props: Props) => {
    }, []);
    //HYDRATION ERROR
    const mounted = useMount();
+   //POSTCODE
+   const scriptUrl = '//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js';
+   const open = useDaumPostcodePopup(scriptUrl);
+   const handleComplete = (data: any) => {
+      let fullAddress = data.address;
+      let extraAddress = '';
+
+      if (data.addressType === 'R') {
+         if (data.bname !== '') {
+            extraAddress += data.bname;
+         }
+         if (data.buildingName !== '') {
+            extraAddress += extraAddress !== '' ? `, ${data.buildingName}` : data.buildingName;
+         }
+         fullAddress += extraAddress !== '' ? ` (${extraAddress})` : '';
+      }
+
+      console.log(fullAddress); // e.g. '서울 성동구 왕십리로2길 20 (성수동1가)'
+   };
+   const handleClick = async () => {
+      const res = await trigger('address');
+      if (!res) return;
+      open({ onComplete: handleComplete, defaultQuery: address.field.value });
+   };
    return (
       <form className={cc('column flex-1 gap-1', className)} onSubmit={handleSubmit(submit)}>
          <Label title={'홈스타일링 받을 분 성함'}>
@@ -44,7 +69,6 @@ const ConsultFormRegister = (props: Props) => {
             <Input placeholder={'010-0000-0000'} {...phone.field} error={formState.errors.phone && true} />
             <span className={'text-xs text-error'}>{formState.errors.phone?.message}&nbsp;</span>
          </Label>
-
          <Label title={'주소 검색'}>
             <div className={'row gap-[10px]'}>
                <Input
@@ -53,9 +77,9 @@ const ConsultFormRegister = (props: Props) => {
                   {...address.field}
                   error={formState.errors.address && true}
                />
-               <Button className={'h-12 w-[104px]'} primary>
+               <button onClick={handleClick} type={'button'} className={'h-12 w-[104px] primary button'}>
                   {'검색'}
-               </Button>
+               </button>
             </div>
             <span className={'text-xs text-error'}>{formState.errors.address?.message}&nbsp;</span>
          </Label>
@@ -80,7 +104,6 @@ const ConsultFormRegister = (props: Props) => {
             <p className={'underline'}>{'자세히보기'}</p>
          </div>
          <p className={'text-xs text-error pt-1'}>{formState.errors.privacyAccept?.message}&nbsp;</p>
-
          <Button disabled={formState.isSubmitting} className={'mt-2'} type={'submit'} primary>
             {'상담 신청하기'}
          </Button>
