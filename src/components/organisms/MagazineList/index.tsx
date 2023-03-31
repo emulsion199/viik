@@ -1,5 +1,4 @@
-import { MagazineItemList, Magazine } from '#constants/magazine';
-import { easeOut, motion } from 'framer-motion';
+import { Magazine, MagazineItemList } from '#constants/magazine';
 import React from 'react';
 import ReactPaginate from 'react-paginate';
 import MagazineItem from './MagazineItem';
@@ -19,7 +18,7 @@ const Items = (props: ItemProps) => {
 };
 const MagazineList = () => {
    const [itemOffset, setItemOffset] = React.useState(0);
-   const itemsPerPage = 2;
+   const itemsPerPage = 3;
    const endOffset = itemOffset + itemsPerPage;
    const currentItems = MagazineItemList.slice(itemOffset, endOffset);
    const pageCount = Math.ceil(MagazineItemList.length / itemsPerPage);
@@ -31,16 +30,34 @@ const MagazineList = () => {
       const newOffset = (event.selected * itemsPerPage) % MagazineItemList.length;
       console.log(`User requested page number ${event.selected}, which is offset ${newOffset}`);
       setItemOffset(newOffset);
+      window.scrollTo({ top: 600 });
    };
+   React.useEffect(() => {
+      const handleScroll = () => {
+         console.log(window.scrollY);
+      };
+
+      // 클라이언트 측에서만 이벤트를 등록합니다.
+      window.addEventListener('scroll', handleScroll);
+
+      // 컴포넌트가 언마운트 될 때 이벤트를 제거합니다.
+      return () => {
+         window.removeEventListener('scroll', handleScroll);
+      };
+   }, []);
+
    return (
-      <motion.div
+      <div
          ref={scrollRef}
-         className={'bg-white top-[10px] w-full text-center'}
+         className={'bg-white top-[10px] w-full text-center z-10'}
          // initial={{ y: window.innerHeight }}
          // animate={{ y: window.innerHeight / 2 + 40 }}
          // transition={{ duration: 0.3, ease: easeOut }}
+         onClick={() => {
+            console.log(window.scrollY);
+         }}
       >
-         <h1 className={'pt-[180px] text-[62px] pb-11'}>{'Magazine'}</h1>
+         <h1 className={'pt-[180px] text-[62px] pb-11 font-[Reckless]'}>{'Magazine'}</h1>
 
          <Items items={currentItems} />
          <ReactPaginate
@@ -50,11 +67,11 @@ const MagazineList = () => {
             breakLabel='...'
             nextLabel=''
             pageRangeDisplayed={1}
-            pageCount={2}
+            pageCount={1}
             previousLabel=''
             onPageChange={handlePageClick}
          />
-      </motion.div>
+      </div>
    );
 };
 

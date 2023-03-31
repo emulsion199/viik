@@ -13,6 +13,12 @@ const MagazinePage = () => {
    const { imageId, setImageId } = store;
    useInterval(() => setImageId((imageId % 3) + 1), 5000);
    const mount = useMount();
-   return mount && <RootTemplate>{<DesktopMagazine />}</RootTemplate>;
+   return (
+      mount && (
+         <RootTemplate>
+            <DesktopMagazine />
+         </RootTemplate>
+      )
+   );
 };
 export default MagazinePage;

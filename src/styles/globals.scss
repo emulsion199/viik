@@ -16,7 +16,7 @@
    html,
    body,
    #__next {
-      @apply overflow-x-hidden h-full min-h-full w-full select-none;
+      @apply h-full min-h-full w-full select-none;
    }
 
    span {
@@ -43,6 +43,11 @@
    [hidden] {
       display: none !important;
    }
+}
+
+@font-face {
+   font-family: 'Reckless';
+   src: url('./fonts/RecklessNeue-Regular.ttf');
 }
 
 @import './layouts.scss';
