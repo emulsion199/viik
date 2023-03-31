@@ -59,17 +59,19 @@ const DesktopNavbar = () => {
                }}
                onMouseOut={() => setSelectLogo(true)}
             >
-               <button className=''>
-                  {
-                     <Image
-                        className={`${type === 0 ? 'transition ease-in duration-500' : ''}  ${imageId === 3 ? 'invert' : ''}`}
-                        alt='Desktop Logo'
-                        src={selectLogo ? ICON_DesktopLogo : ICON_MainLogo}
-                        width={selectLogo ? 128 : 80}
-                        height={selectLogo ? 42 : 70}
-                     />
-                  }
-               </button>
+               <Link href={PATH.main}>
+                  <button className=''>
+                     {
+                        <Image
+                           className={`${type === 0 ? 'transition ease-in duration-500' : ''}  ${imageId === 3 ? 'invert' : ''}`}
+                           alt='Desktop Logo'
+                           src={selectLogo ? ICON_DesktopLogo : ICON_MainLogo}
+                           width={selectLogo ? 128 : 80}
+                           height={selectLogo ? 42 : 70}
+                        />
+                     }
+                  </button>
+               </Link>
             </span>
             <div className='space-x-12'>
                <Link href={PATH.magazine}>
