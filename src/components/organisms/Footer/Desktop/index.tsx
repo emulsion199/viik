@@ -1,6 +1,7 @@
 import ICON_LOGO from '#assets/logo/desktopLogo.svg';
 import { FooterItems } from '#constants/footer';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const DesktopFooter = () => {
    const footerItems = FooterItems;
@@ -11,9 +12,11 @@ const DesktopFooter = () => {
          <span className='flex flex-col'>
             {items.map(item => {
                return (
-                  <button key={item.title} className='text-p2 text-start whitespace-nowrap' onClick={() => console.log('press')}>
-                     {item.title}
-                  </button>
+                  <Link href={item.href}>
+                     <button key={item.title} className='text-p2 text-start whitespace-nowrap'>
+                        {item.title}
+                     </button>
+                  </Link>
                );
             })}
          </span>

@@ -1,4 +1,5 @@
 import RootTemplate from '#components/Template/RootTemplate';
+
 import { useMount } from '#hooks/useMount';
 import useInterval from '#utils/useInterval';
 import React from 'react';
@@ -16,3 +17,4 @@ const MagazinePage = () => {
    return mount && <RootTemplate>{<DesktopMagazine />}</RootTemplate>;
 };
 export default MagazinePage;
+
