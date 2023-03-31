@@ -28,8 +28,8 @@ const Terms = () => {
                   <DesktopNavbar />
                </motion.div>
             )}
-            <div className='center column w-full pt-[100px]'>
-               <span className='text-h1 font-medium'>이용약관</span>
+            <div className='center column w-full '>
+               <span className='text-h1 font-medium my-[60px]'>이용약관</span>
                <span className='w-full max-w-[686px] px-10'>
                   <pre className='text-start whitespace-pre-line text-p2 font-medium column'>{data}</pre>
                </span>

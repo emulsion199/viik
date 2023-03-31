@@ -28,8 +28,8 @@ const Policy = () => {
                   <DesktopNavbar />
                </motion.div>
             )}
-            <div className='center column w-full pt-[100px]'>
-               <span className='text-h1 font-medium'>개인정보처리방침</span>
+            <div className='center column w-full'>
+               <span className='text-h1 font-medium my-[60px]'>개인정보처리방침</span>
                <span className='w-full max-w-[686px] px-10'>
                   <pre className='text-start whitespace-pre-line text-p2 font-medium column'>{data}</pre>
                </span>
