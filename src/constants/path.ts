@@ -4,4 +4,5 @@ export const PATH = {
    styling: BASE + 'styling',
    aboutus: BASE + 'aboutus',
    magazine: BASE + 'magazine',
+   magazine_detail: BASE + 'magazine/detail',
 };

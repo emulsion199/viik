@@ -4,6 +4,7 @@ import Image from 'next/image';
 
 const MagazineItem = (props: Magazine) => {
    const { title, desc, imgsrc } = props;
+
    return (
       <div className={'text-center column items-center'}>
          <Image className={'pb-10'} src={imgsrc} alt={'item'} width={1080} />
