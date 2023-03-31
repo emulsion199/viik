@@ -7,4 +7,5 @@ export const PATH = {
    terms:BASE+'terms',
    policy:BASE+'policy',
    faq:BASE+'faq',
+   magazine_detail: BASE + 'magazine/detail',
 };
