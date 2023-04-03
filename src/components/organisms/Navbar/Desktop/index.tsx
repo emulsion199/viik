@@ -51,7 +51,9 @@ const DesktopNavbar = () => {
    return (
       <div className=' w-full flex flex-col px-10 justify-between'>
          <div className='flex flex-row justify-between items-center'>
-            <Item title='SHOP' />
+            <Link href={PATH.shop}>
+               <Item title='SHOP' />
+            </Link>
             <span
                className='w-32 h-20 flex items-center justify-center'
                onMouseOver={() => {
