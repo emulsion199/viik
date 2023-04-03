@@ -23,7 +23,7 @@ const DesktopMagazine = () => {
    }, [imageId, scrollY]);
 
    return (
-      <div className='relative'>
+      <div className='relative h-screen '>
          <div
             style={{
                backgroundImage: 'url(' + `/img/main_pc${imageId}.png` + ')',
@@ -33,8 +33,8 @@ const DesktopMagazine = () => {
             }}
             className={'flex items-center z-0 sticky top-0 w-screen h-[calc(50vh+60px)] '}
          ></div>
-         <div className={'z-10 translate-y-[-100px]'}>
-            <div className={cc('w-full  sticky top-[100px] transition-all', flag ? 'bg-white' : '')}>
+         <div className={'z-10 translate-y-[-100px]  '}>
+            <div className={cc('w-full sticky top-[100px] transition-all', flag ? 'bg-white' : '')}>
                <motion.div layoutId='navbar'>
                   <DesktopNavbar />
                </motion.div>
@@ -42,7 +42,9 @@ const DesktopMagazine = () => {
 
             <MagazineList />
          </div>
-         <Footer />
+         <div className={'translate-y-[-100px]'}>
+            <Footer />
+         </div>
       </div>
    );
 };
