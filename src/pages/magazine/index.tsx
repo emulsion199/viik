@@ -1,10 +1,12 @@
 import RootTemplate from '#components/Template/RootTemplate';
+import { useMobile } from '#hooks/useMobile';
 
 import { useMount } from '#hooks/useMount';
 import useInterval from '#utils/useInterval';
 import React from 'react';
 import useBgStore from 'src/store/useTextColor';
 import DesktopMagazine from './DesktopMagazine';
+import MobileMagazine from './MobileMagazine';
 
 const MagazinePage = () => {
    React.useEffect(() => {
@@ -14,7 +16,8 @@ const MagazinePage = () => {
    const { imageId, setImageId } = store;
    useInterval(() => setImageId((imageId % 3) + 1), 5000);
    const mount = useMount();
-   return mount && <RootTemplate>{<DesktopMagazine />}</RootTemplate>;
+
+   const isMobile = useMobile();
+   return mount && <RootTemplate>{isMobile ? <MobileMagazine /> : <DesktopMagazine />}</RootTemplate>;
 };
 export default MagazinePage;
-

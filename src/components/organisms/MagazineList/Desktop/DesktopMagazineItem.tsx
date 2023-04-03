@@ -2,7 +2,7 @@ import { Magazine } from '#constants/magazine';
 import Link from 'next/link';
 import Image from 'next/image';
 
-const MagazineItem = (props: Magazine) => {
+const DesktopMagazineItem = (props: Magazine) => {
    const { title, desc, imgsrc } = props;
 
    return (
@@ -16,4 +16,4 @@ const MagazineItem = (props: Magazine) => {
       </div>
    );
 };
-export default MagazineItem;
+export default DesktopMagazineItem;
