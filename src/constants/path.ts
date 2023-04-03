@@ -9,4 +9,5 @@ export const PATH = {
    faq: BASE + 'faq',
    magazine_detail: BASE + 'magazine/detail',
    shop: BASE + 'shop',
+   shop_detail: BASE + 'shop/detail',
 };

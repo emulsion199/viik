@@ -1,8 +1,8 @@
 import { StaticImageData } from 'next/image';
 
-import SHOP_1 from '#assets/images/shop/shop_1.png';
-import SHOP_2 from '#assets/images/shop/shop_2.png';
-import SHOP_3 from '#assets/images/shop/shop_3.png';
+import SHOP_1 from '../../public/shop/shop_1.png';
+import SHOP_2 from '../../public/shop/shop_2.png';
+import SHOP_3 from '../../public/shop/shop_3.png';
 
 export type ShopItem = {
    title: string;
