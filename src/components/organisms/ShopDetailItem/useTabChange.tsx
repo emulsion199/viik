@@ -7,13 +7,13 @@ export const useTabChange = () => {
    const scrollTarget = React.useRef<number | null>(null);
    const [selectedTab, setSelectedTab] = React.useState(1);
 
-   const onTabChange = React.useCallback((id: number) => {
-      const childTop = (childRef?.current[id]?.getBoundingClientRect()?.top ?? 0) + window.scrollY - 80;
+   const onTabChange = React.useCallback((id: number, padding?: number) => {
+      const pad = padding || 80;
+      const childTop = (childRef?.current[id]?.getBoundingClientRect()?.top ?? 0) + window.scrollY - pad;
       const scrollLimit = document.body.scrollHeight - document.body.clientHeight;
       const target = childTop > scrollLimit ? scrollLimit : childTop;
       setSelectedTab(id);
-      if (tabRef.current?.scrollTop === childTop) return; //scroll할 필요가 없으면 return
-
+      if (window.scrollY === target) return; //scroll할 필요가 없으면 return
       window.scrollTo({ top: target, behavior: 'smooth' });
       scrollTarget.current = target;
       scrolling.current = true;
