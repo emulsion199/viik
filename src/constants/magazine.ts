@@ -1,7 +1,7 @@
 import { StaticImageData } from 'next/image';
-import MAGAZINE_1 from '#assets/images/magazine_1.png';
-import MAGAZINE_2 from '#assets/images/magazine_2.png';
-import MAGAZINE_3 from '#assets/images/magazine_3.png';
+import MAGAZINE_1 from '#assets/images/magazine/magazine_1.png';
+import MAGAZINE_2 from '#assets/images/magazine/magazine_2.png';
+import MAGAZINE_3 from '#assets/images/magazine/magazine_3.png';
 
 export type Magazine = {
    imgsrc: StaticImageData;

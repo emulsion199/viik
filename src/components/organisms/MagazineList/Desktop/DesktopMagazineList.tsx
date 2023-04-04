@@ -32,19 +32,6 @@ const DesktopMagazineList = () => {
       setItemOffset(newOffset);
       window.scrollTo({ top: 600 });
    };
-   React.useEffect(() => {
-      const handleScroll = () => {
-         console.log(window.scrollY);
-      };
-
-      // 클라이언트 측에서만 이벤트를 등록합니다.
-      window.addEventListener('scroll', handleScroll);
-
-      // 컴포넌트가 언마운트 될 때 이벤트를 제거합니다.
-      return () => {
-         window.removeEventListener('scroll', handleScroll);
-      };
-   }, []);
 
    return (
       <div

@@ -3,6 +3,7 @@ import React, { ReactNode, useEffect } from 'react';
 import ICON_SEARCH from '#assets/icons/line/search.svg';
 import Image from 'next/image';
 import { AnimatePresence, motion } from 'framer-motion';
+import { PATH } from '#constants/path';
 
 interface MobileMenuItemProps {
    title: string;
@@ -36,11 +37,11 @@ const MobileMenu = () => {
    const MenuItems: MobileMenuItemProps[] = [
       {
          title: 'ABOUT US',
-         href: '',
+         href: PATH.aboutus,
       },
       {
          title: 'MAGAZINE',
-         href: '',
+         href: PATH.magazine,
       },
       {
          title: 'GO VIIKSTORY.COM',
@@ -48,7 +49,7 @@ const MobileMenu = () => {
       },
       {
          title: 'SHOP',
-         href: '',
+         href: PATH.shop,
       },
    ];
 
@@ -57,7 +58,7 @@ const MobileMenu = () => {
          initial={{ y: '-100%' }}
          animate={{ y: 0, transition: { duration: 0.5 } }}
          exit={{ y: '-100%', transition: { duration: 0.5 } }}
-         className='w-full column bg-white'
+         className='w-full column bg-white fixed'
       >
          <MobileSearchBar />
          {MenuItems.map((item, index) => {

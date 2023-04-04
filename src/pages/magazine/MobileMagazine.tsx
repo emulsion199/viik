@@ -21,7 +21,7 @@ const MobileMagazine = () => {
    }, [imageId, scrollY]);
 
    return (
-      <div className='relative  '>
+      <div>
          <MobileNavbar />
          <MagazineList />
 
