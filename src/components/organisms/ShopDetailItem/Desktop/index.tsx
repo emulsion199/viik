@@ -3,16 +3,21 @@ import React from 'react';
 import { useTabChange } from '../useTabChange';
 import DesktopCarousel from './DesktopCarousel';
 import DeleveryTab from './Tab/DeliveryTab';
+import FabricTab from './Tab/FabricTab';
+import ProductBuyInfoTab from './Tab/ProductBuyInfoTab';
+import ProductDetailInfoTab from './Tab/ProductDetailInfoTab';
+import ProductInfoTab from './Tab/ProductInfoTab';
+import ProductUseInfoTab from './Tab/ProductUseInfoTab';
 import SizeTab from './Tab/SizeTab';
 
 const TabItem = [
-   // '상품 정보',
-   // '소개',
+   '상품 정보',
+   '소재',
    '사이즈',
    '배송 및 CS 안내',
-   // '상품 구매 시 주의사항',
-   // '상품 사용 시 주의사항',
-   // '상세 제품 고시 정보',
+   '상품 구매 시 주의사항',
+   '상품 사용 시 주의사항',
+   '상세 제품 고시 정보',
    // '리뷰',
 ];
 const DesktopShopDetailItem = () => {
@@ -45,19 +50,34 @@ const DesktopShopDetailItem = () => {
                <span className={'aspect-[5/6] w-full'}>{'제품 선택 섹션'}</span>
             </section>
          </div>
-         <div className={'relative w-full items-center column pt-[180px]'} ref={sectionRef}>
+         <div className={'relative w-full items-center text-start column py-[180px] gap-[100px]'} ref={sectionRef}>
             <div ref={el => (childRef.current[0] = el)}>
-               <SizeTab />
+               <ProductInfoTab />
             </div>
             <div ref={el => (childRef.current[1] = el)}>
+               <FabricTab />
+            </div>
+            <div ref={el => (childRef.current[2] = el)}>
+               <SizeTab />
+            </div>
+            <div ref={el => (childRef.current[3] = el)}>
                <DeleveryTab />
             </div>
+            <div ref={el => (childRef.current[4] = el)}>
+               <ProductBuyInfoTab />
+            </div>
+            <div ref={el => (childRef.current[5] = el)}>
+               <ProductUseInfoTab />
+            </div>
+            <div ref={el => (childRef.current[6] = el)}>
+               <ProductDetailInfoTab />
+            </div>
 
-            <div className={cc('column gap-[14px] text-p2 left-[40px]', fix ? 'fixed top-[80px] left-0' : 'absolute left-0')}>
+            <div className={cc('column gap-[14px] text-p3 left-[40px]', fix ? 'fixed top-[80px] left-0' : 'absolute left-0')}>
                {TabItem.map((it, idx) => (
                   <div
                      onClick={() => onTabChange(idx)}
-                     className={cc('transition-all', selectedTab === idx ? 'text-black text-p3' : 'text-gray-2')}
+                     className={cc('transition-all', selectedTab === idx ? 'text-black scale-[110%]' : 'text-gray-2')}
                   >
                      {it}
                   </div>

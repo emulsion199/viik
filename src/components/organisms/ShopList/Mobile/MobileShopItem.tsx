@@ -1,3 +1,4 @@
+import { PATH } from '#constants/path';
 import { ShopItem } from '#constants/shop';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -8,7 +9,7 @@ const MobileShopItem = (props: ShopItem) => {
          <Image className={'pb-10'} src={imgsrc} alt={'item'} />
          <h1 className={'text-p4 pb-3 px-[31px]'}>{title}</h1>
          <h2 className={'text-p2 whitespace-pre-wrap pb-3 px-[31px]'}>{desc}</h2>
-         <Link href={'/'}>
+         <Link href={PATH.shop_detail}>
             <span className={'underline'}>{'자세히 보기'}</span>
          </Link>
       </div>

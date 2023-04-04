@@ -9,25 +9,27 @@ export const useTabChange = () => {
 
    const onTabChange = React.useCallback((id: number) => {
       const childTop = (childRef?.current[id]?.getBoundingClientRect()?.top ?? 0) + window.scrollY - 80;
-
+      const scrollLimit = document.body.scrollHeight - document.body.clientHeight;
+      const target = childTop > scrollLimit ? scrollLimit : childTop;
       setSelectedTab(id);
       if (tabRef.current?.scrollTop === childTop) return; //scroll할 필요가 없으면 return
 
-      window.scrollTo({ top: childTop, behavior: 'smooth' });
-      scrollTarget.current = childTop;
+      window.scrollTo({ top: target, behavior: 'smooth' });
+      scrollTarget.current = target;
       scrolling.current = true;
    }, []);
 
    const handleScroll = React.useCallback((scrollTop: number) => {
       if (scrollTop) {
          if (scrolling.current) {
-            if (scrollTop - (scrollTarget.current ?? 0) < 1) {
+            if (Math.abs(scrollTop - (scrollTarget.current ?? 0)) < 1) {
                scrollTarget.current = null;
                scrolling.current = false;
             }
             return;
          }
       }
+
       const tabTops: number[] = [];
       childRef.current.forEach(it => tabTops.push((it?.getBoundingClientRect()?.top ?? 0) + window.scrollY - 80));
       //최상단 일 때
