@@ -8,4 +8,8 @@ export const PATH = {
    policy:BASE+'policy',
    faq:BASE+'faq',
    magazine_detail: BASE + 'magazine/detail',
+   community:BASE+'community',
+   info:BASE+'community/info',
+   review:BASE+'community/review',
+   promotion:BASE+'community/promotion',
 };
