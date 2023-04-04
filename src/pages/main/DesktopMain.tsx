@@ -15,9 +15,9 @@ const DesktopMain = () => {
          }}
          className={'flex items-center w-screen h-screen '}
       >
-         <motion.div className={'w-full'} layoutId='navbar'>
+         <div className={'w-full'}>
             <DesktopNavbar />
-         </motion.div>
+         </div>
       </div>
    );
 };
