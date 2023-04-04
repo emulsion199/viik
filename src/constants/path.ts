@@ -10,4 +10,8 @@ export const PATH = {
    magazine_detail: BASE + 'magazine/detail',
    shop: BASE + 'shop',
    shop_detail: BASE + 'shop/detail',
+   community:BASE+'community',
+   info:BASE+'community/info',
+   review:BASE+'community/review',
+   promotion:BASE+'community/promotion',
 };

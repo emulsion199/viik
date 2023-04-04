@@ -28,7 +28,7 @@ const index = () => {
             </motion.div>
          )}
          <Tab.Group>
-            <Tab.List className='h-12 w-full border-b border-b-gray-3 row md:text-p3 text-p2 font-medium'>
+            <Tab.List className=' bg-bg-default h-12 w-full border-b border-b-gray-3 row md:text-p3 text-p2 font-medium'>
                <Tab className={'w-1/2 aria-selected:bg-primary aria-selected:text-white outline-none'}>VIIK</Tab>
                <Tab className={'w-1/2 aria-selected:bg-primary aria-selected:text-white outline-none'}>BESPOKE</Tab>
             </Tab.List>
