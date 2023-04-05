@@ -50,14 +50,8 @@ const Promotion = () => {
                            <CommunityItem title={'VIIK'} link='' />
                            <CommunityItem title={'VIIK'} link='' />
                         </Tab.Panel>
-                        <Tab.Panel className={'space-y-10'}>
-                           <CommunityItem title={'VIIK'} link='' />
-                           <CommunityItem title={'VIIK'} link='' />
-                        </Tab.Panel>
-                        <Tab.Panel className={'space-y-10'}>
-                           <CommunityItem title={'VIIK'} link='' />
-                           <CommunityItem title={'VIIK'} link='' />
-                        </Tab.Panel>
+                        <Tab.Panel className={'space-y-10'}></Tab.Panel>
+                        <Tab.Panel className={'space-y-10'}></Tab.Panel>
                      </Tab.Panels>
                   </Tab.Group>
                </div>

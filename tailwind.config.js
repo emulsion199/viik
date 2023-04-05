@@ -63,5 +63,5 @@ module.exports = {
       },
    },
 
-   plugins: [require('@headlessui/tailwindcss')({ prefix: 'hui' })],
+   plugins: [require('@headlessui/tailwindcss')({ prefix: 'hui' }), require('@tailwindcss/line-clamp')],
 };
