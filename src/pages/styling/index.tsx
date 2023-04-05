@@ -38,14 +38,9 @@ const StylingPage = () => {
                   <ConsultFormRegister className={'w-[428px] px-6 pb-[214px] '} />
                </>
             ) : (
-               <motion.div
-                  initial={{ opacity: 0, scale: 0.98 }}
-                  exit={{ opacity: 0, scale: 0.98, transition: { duration: 1 } }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className={'w-full min-h-[calc(100vh-80px)] flex items-center justify-center'}
-               >
+               <div className={'w-full min-h-[calc(100vh-80px)] flex items-center justify-center'}>
                   <ConsultFormSuccess />
-               </motion.div>
+               </div>
             )}
          </div>
          <Footer />
