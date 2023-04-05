@@ -26,9 +26,9 @@ const StylingPage = () => {
             {mobile ? (
                <MobileNavbar />
             ) : (
-               <motion.div className={'z-10 w-full sticky top-0 bg-[rgba(250,241,229,0.6)] backdrop-blur-sm'} layoutId='navbar'>
+               <div className={'z-10 w-full sticky top-0 bg-[rgba(250,241,229,0.6)] backdrop-blur-sm'}>
                   <DesktopNavbar />
-               </motion.div>
+               </div>
             )}
             {level === 1 ? (
                <>

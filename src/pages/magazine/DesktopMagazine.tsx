@@ -35,9 +35,9 @@ const DesktopMagazine = () => {
          ></div>
          <div className={'z-10 translate-y-[-100px]  '}>
             <div className={cc('w-full sticky top-[100px] transition-all', flag ? 'bg-white' : '')}>
-               <motion.div layoutId='navbar'>
+               <div>
                   <DesktopNavbar />
-               </motion.div>
+               </div>
             </div>
 
             <MagazineList />

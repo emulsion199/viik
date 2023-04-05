@@ -26,9 +26,9 @@ const Promotion = () => {
             {mobile ? (
                <MobileNavbar />
             ) : (
-               <motion.div className={'w-full sticky top-0 backdrop-blur-sm'} layoutId='navbar'>
+               <div className={'w-full sticky top-0 backdrop-blur-sm'}>
                   <DesktopNavbar />
-               </motion.div>
+               </div>
             )}
             <div className='center column w-screen'>
                <span className='text-h1 font-medium my-[60px]'>Community</span>

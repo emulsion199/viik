@@ -24,9 +24,9 @@ const Terms = () => {
             {mobile ? (
                <MobileNavbar />
             ) : (
-               <motion.div className={'w-full sticky top-0 backdrop-blur-sm'} layoutId='navbar'>
+               <div className={'w-full sticky top-0 backdrop-blur-sm'}>
                   <DesktopNavbar />
-               </motion.div>
+               </div>
             )}
             <div className='center column w-full '>
                <span className='text-h1 font-medium my-[60px]'>이용약관</span>

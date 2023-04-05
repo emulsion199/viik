@@ -11,9 +11,9 @@ const DesktopShopDetail = () => {
    }, []);
    return (
       <div className={'column'}>
-         <motion.div className={'z-10 w-full sticky top-0 bg-white '} layoutId='navbar'>
+         <div className={'z-10 w-full sticky top-0 bg-white '}>
             <DesktopNavbar />
-         </motion.div>
+         </div>
 
          <DesktopShopDetailItem />
       </div>

@@ -5,9 +5,8 @@ const MobileMain = () => {
    const { imageId } = useBgStore();
    return (
       <>
-         <motion.div layoutId='navbar'>
-            <MobileNavbar />
-         </motion.div>
+         <MobileNavbar />
+
          <div
             style={{
                backgroundImage: 'url(' + `/img/main${imageId}.png` + ')',

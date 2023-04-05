@@ -7,11 +7,7 @@ interface RootTemplateProps {
 }
 
 const RootTemplate = (props: RootTemplateProps) => {
-   return (
-      <motion.div layout transition={{ ease: 'easeInOut', duration: 0.1 }} className='w-full h-[100px] bg-bg-default '>
-         {props.children}
-      </motion.div>
-   );
+   return <div className='w-full h-[100px] bg-bg-default '>{props.children}</div>;
 };
 
 export default RootTemplate;

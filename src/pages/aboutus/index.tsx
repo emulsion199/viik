@@ -23,9 +23,9 @@ const index = () => {
          {mobile ? (
             <MobileNavbar />
          ) : (
-            <motion.div className={'z-always w-full sticky top-0 bg-[rgba(250,241,229,0.6)] backdrop-blur-sm'} layoutId='navbar'>
+            <div className={'z-always w-full sticky top-0 bg-[rgba(250,241,229,0.6)] backdrop-blur-sm'}>
                <DesktopNavbar />
-            </motion.div>
+            </div>
          )}
          <Tab.Group>
             <Tab.List className=' bg-bg-default h-12 w-full border-b border-b-gray-3 row md:text-p3 text-p2 font-medium'>
