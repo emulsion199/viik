@@ -20,7 +20,7 @@ const ReviewItem = (props: ReviewItemProps) => {
       stars.push(<Image src={ICON_STAR} width={14} height={14} alt='star'></Image>);
    }
    return (
-      <span className='w-[292px] flex flex-col bg-white rounded-lg p-4 justify-center space-y-4'>
+      <div className='w-[292px] flex flex-col bg-white rounded-lg p-4 justify-center space-y-4'>
          {isBest && <BestReview />}
          <span className='bg-bg-default w-full h-[307px] rounded-xl'></span>
          <span className='text-p3 font-medium'>{category}</span>
@@ -32,7 +32,7 @@ const ReviewItem = (props: ReviewItemProps) => {
             <p className='text-p1 text-gray-1 font-medium line-clamp-5'>{text}</p>
             <button className=' text-p1 font-medium text-black'>더보기</button>
          </span>
-      </span>
+      </div>
    );
 };
 
