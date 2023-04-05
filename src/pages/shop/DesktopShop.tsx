@@ -38,9 +38,7 @@ const DesktopShop = () => {
          ></div>
          <div className={'z-10 translate-y-[-100px]  '}>
             <div className={cc('w-full sticky top-[100px] transition-all', flag ? 'bg-white ' : '')}>
-               <div>
-                  <DesktopNavbar />
-               </div>
+               <DesktopNavbar />
             </div>
 
             <ShopList />
