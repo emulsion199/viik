@@ -12,10 +12,8 @@ const DesktopFooter = () => {
          <span className='flex flex-col'>
             {items.map(item => {
                return (
-                  <Link href={item.href}>
-                     <button key={item.title} className='text-p2 text-start whitespace-nowrap'>
-                        {item.title}
-                     </button>
+                  <Link href={item.href} key={item.title} className='text-p2 text-start whitespace-nowrap'>
+                     {item.title}
                   </Link>
                );
             })}

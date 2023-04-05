@@ -8,7 +8,7 @@ const MobileShopList = () => {
 
    const [selectedIndex, setSelectedIndex] = React.useState(0);
    return (
-      <div className={'bg-white column justify-center items-center pb-[180px]'}>
+      <div className={'bg-white column justify-center items-center pb-[180px] flex-1'}>
          <Tab.Group
             selectedIndex={selectedIndex}
             onChange={it => {
