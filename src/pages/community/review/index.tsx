@@ -6,6 +6,7 @@ import MobileFooter from '#components/organisms/Footer/Mobile';
 import DesktopNavbar from '#components/organisms/Navbar/Desktop';
 import MobileNavbar from '#components/organisms/Navbar/Mobile';
 import RootTemplate from '#components/Template/RootTemplate';
+import SecondaryTemplate from '#components/Template/SecondaryTemplate';
 import { PATH } from '#constants/path';
 import { useMobile } from '#hooks/useMobile';
 import { useMount } from '#hooks/useMount';
@@ -67,33 +68,21 @@ const Review = () => {
    const mount = useMount();
 
    return (
-      mount && (
-         <RootTemplate>
-            <div className='flex w-screen bg-bg-default pb-[100px] flex-col min-h-screen'>
-               {mobile ? (
-                  <MobileNavbar />
-               ) : (
-                  <div className={'w-full sticky top-0 backdrop-blur-sm'}>
-                     <DesktopNavbar />
-                  </div>
-               )}
-               <div className='center column w-screen'>
-                  <span className='text-h1 font-medium my-[60px]'>Community</span>
-                  <div className='row w-full justify-center space-x-40'>
-                     <MenuIndex selectedIndex={2} />
-                     <div className='column w-[686px]'>
-                        <div className='grid grid-cols-2 gap-y-10'>
-                           {data.map(a => (
-                              <ReviewItem {...a} />
-                           ))}
-                        </div>
-                     </div>
+      <SecondaryTemplate>
+         <div className='center column w-screen'>
+            <span className='text-h1 font-medium my-[60px]'>Community</span>
+            <div className='row w-full justify-center space-x-40'>
+               <MenuIndex selectedIndex={2} />
+               <div className='column w-[686px]'>
+                  <div className='grid grid-cols-2 gap-y-10'>
+                     {data.map(a => (
+                        <ReviewItem {...a} />
+                     ))}
                   </div>
                </div>
             </div>
-            {mobile ? <MobileFooter /> : <DesktopFooter />}
-         </RootTemplate>
-      )
+         </div>
+      </SecondaryTemplate>
    );
 };
 
