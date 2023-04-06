@@ -1,30 +1,36 @@
+import Aboutus from '#components/organisms/Aboutus';
 import Footer from '#components/organisms/Footer';
-import MagazineList from '#components/organisms/MagazineList';
 import DesktopNavbar from '#components/organisms/Navbar/Desktop';
-import ShopList from '#components/organisms/ShopList';
-import { useMount } from '#hooks/useMount';
-import { useScrollPosition } from '#utils/scroll';
 import { cc } from '#utils/string';
-import { motion } from 'framer-motion';
 import React from 'react';
 import useBgStore from 'src/store/useTextColor';
-
-const DesktopShop = () => {
-   const { imageId, setImageId } = useBgStore();
-   const scrollY = useScrollPosition();
-   const [flag, setFlag] = React.useState(false);
+const DesktopAboutus = () => {
+   const { setImageId, imageId } = useBgStore();
    React.useEffect(() => {
+      setImageId(3);
+   }, []);
+   const [flag, setFlag] = React.useState(false);
+
+   const HandleScroll = React.useCallback(() => {
+      const scrollY = window.scrollY;
       if (scrollY >= window.innerHeight / 2 - 40) {
          if (imageId !== 3) {
             setImageId(3);
          }
-         setFlag(true);
+         {
+            setFlag(true);
+         }
       } else {
          setFlag(false);
       }
-   }, [imageId, scrollY]);
-   const mount = useMount();
-
+   }, []);
+   React.useEffect(() => {
+      window.addEventListener('scroll', HandleScroll);
+      return () => window.removeEventListener('scroll', HandleScroll);
+   }, []);
+   const context = React.useMemo(() => {
+      return <Aboutus />;
+   }, []);
    return (
       <div className='relative h-screen '>
          <div
@@ -37,16 +43,16 @@ const DesktopShop = () => {
             className={'flex items-center z-0 sticky top-0 w-screen h-[calc(50vh+60px)] '}
          ></div>
          <div className={'z-10 translate-y-[-100px]  '}>
-            <div className={cc('w-full sticky top-[100px] transition-all', flag ? 'bg-white ' : '')}>
+            <div className={cc('w-full sticky top-[100px] transition-all z-always', flag ? 'bg-bg-default ' : '')}>
                <DesktopNavbar />
             </div>
 
-            <ShopList />
+            {context}
          </div>
-         <div className={'translate-y-[-200px]'}>
+         <div className={'translate-y-[-100px]'}>
             <Footer />
          </div>
       </div>
    );
 };
-export default DesktopShop;
+export default DesktopAboutus;

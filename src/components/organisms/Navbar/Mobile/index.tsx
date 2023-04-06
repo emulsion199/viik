@@ -2,8 +2,10 @@ import ICON_BURGER from '#assets/icons/line/burger.svg';
 import ICON_CANCEL from '#assets/icons/line/cancel.svg';
 import LOGO from '#assets/logo/default.svg';
 import MobileMenu from '#components/organisms/Menu/Mobile/MobileMenu';
+import { PATH } from '#constants/path';
 import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useReducer } from 'react';
 
 const MobileNavbar = () => {
@@ -24,7 +26,9 @@ const MobileNavbar = () => {
                <Image src={LOGO} alt={'logo'} width={29.51} height={26} />
             </div>
 
-            <span className=' text-white text-sm'>{'STYLING'}</span>
+            <Link href={PATH.styling} className=' text-white text-sm'>
+               {'STYLING'}
+            </Link>
          </div>
 
          <div className='flex w-full absolute z-50 top-16'>
