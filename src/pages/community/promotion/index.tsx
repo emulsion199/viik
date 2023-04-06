@@ -25,8 +25,8 @@ const Promotion = () => {
                <MenuIndex selectedIndex={0} />
                <div className='column w-[686px]'>
                   <div className='space-y-10'>
-                     <CommunityItem title={'VIIK'} link='' />
-                     <CommunityItem title={'VIIK'} link='' />
+                     <CommunityItem title={'VIIK'} link={PATH.promotion_detail} />
+                     <CommunityItem title={'VIIK'} link={PATH.promotion_detail} />
                   </div>
                </div>
             </div>

@@ -12,6 +12,10 @@ export const PATH = {
    shop_detail: BASE + 'shop/detail',
    community:BASE+'community',
    info:BASE+'community/info',
+   info_detail:BASE+'community/info/detail',
    review:BASE+'community/review',
+   review_detail:BASE+'community/review/detail',
    promotion:BASE+'community/promotion',
+   promotion_detail:BASE+'community/promotion/detail',
+   
 };
