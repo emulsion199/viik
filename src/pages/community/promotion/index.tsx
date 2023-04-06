@@ -17,17 +17,16 @@ import React from 'react';
 import useBgStore from 'src/store/useTextColor';
 
 const Promotion = () => {
+   const mobile = useMobile();
    return (
       <SecondaryTemplate>
          <div className='center column w-screen'>
-            <span className='text-h1 font-medium my-[60px]'>Community</span>
-            <div className='row w-full justify-center space-x-40'>
+            {!mobile && <span className='text-h1 font-medium my-[60px]'>Community</span>}
+            <div className='flex flex-col w-full justify-center md:space-x-40 md:flex-row'>
                <MenuIndex selectedIndex={0} />
-               <div className='column w-[686px]'>
-                  <div className='space-y-10'>
-                     <CommunityItem title={'VIIK'} link={PATH.promotion_detail} />
-                     <CommunityItem title={'VIIK'} link={PATH.promotion_detail} />
-                  </div>
+               <div className='flex flex-col justify-center items-center max-w-[686px] w-full space-y-10 px-4 mt-10 md:mt-0'>
+                  <CommunityItem title={'VIIK'} link={PATH.promotion_detail} />
+                  <CommunityItem title={'VIIK'} link={PATH.promotion_detail} />
                </div>
             </div>
          </div>

@@ -19,7 +19,6 @@ const SecondaryTemplate = (props: Props) => {
       setImageId(3);
    }, []);
    const mobile = useMobile();
-   const mount = useMount();
 
    return (
       <RootTemplate>

@@ -1,30 +1,13 @@
-import { PATH } from '#constants/path';
-import { cc } from '#utils/string';
-import Link from 'next/link';
+import { useMobile } from '#hooks/useMobile';
 import React from 'react';
-
+import MobileMenuIndex from './MobileMenuIndex';
+import DesktopMenuIndex from './DesktopMenuIndex';
 interface Props {
    selectedIndex: 0 | 1 | 2;
 }
-
 const MenuIndex = (props: Props) => {
-   const selectedIndex = props.selectedIndex;
-   return (
-      <div className='flex flex-col space-y-5 items-start w-16'>
-         <Link
-            className={cc('outline-none text-p3  font-medium', selectedIndex === 0 ? 'text-black' : 'text-gray-2')}
-            href={PATH.promotion}
-         >
-            프로모션
-         </Link>
-         <Link className={cc('outline-none text-p3  font-medium', selectedIndex === 1 ? 'text-black' : 'text-gray-2')} href={PATH.info}>
-            공지
-         </Link>
-         <Link className={cc('outline-none text-p3 font-medium', selectedIndex === 2 ? 'text-black' : 'text-gray-2 ')} href={PATH.review}>
-            리뷰
-         </Link>
-      </div>
-   );
+   const mobile = useMobile();
+   return mobile ? <MobileMenuIndex selectedIndex={props.selectedIndex} /> : <DesktopMenuIndex selectedIndex={props.selectedIndex} />;
 };
 
 export default MenuIndex;

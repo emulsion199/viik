@@ -60,20 +60,15 @@ const data: ReviewItemProps[] = [
 ];
 
 const Review = () => {
-   const { setImageId } = useBgStore();
-   React.useEffect(() => {
-      setImageId(3);
-   }, []);
    const mobile = useMobile();
-   const mount = useMount();
 
    return (
       <SecondaryTemplate>
          <div className='center column w-screen'>
-            <span className='text-h1 font-medium my-[60px]'>Community</span>
-            <div className='row w-full justify-center space-x-40'>
+            {!mobile && <span className='text-h1 font-medium my-[60px]'>Community</span>}
+            <div className='flex flex-col w-full justify-center md:space-x-40 md:flex-row'>
                <MenuIndex selectedIndex={2} />
-               <div className='column w-[686px]'>
+               <div className='column w-[686px] px-4'>
                   <div className='grid grid-cols-2 gap-y-10'>
                      {data.map(a => (
                         <ReviewItem {...a} />
