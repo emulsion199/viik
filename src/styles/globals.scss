@@ -34,6 +34,10 @@
       @apply select-text whitespace-nowrap;
    }
 
+   hr {
+      @apply h-[1px] bg-gray-3 border-0;
+   }
+
    *:focus,
    *:active,
    *:visited {

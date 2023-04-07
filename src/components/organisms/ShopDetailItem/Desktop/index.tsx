@@ -2,6 +2,7 @@ import { cc } from '#utils/string';
 import React from 'react';
 import { useTabChange } from '../useTabChange';
 import DesktopCarousel from './DesktopCarousel';
+import Options from './Options';
 import DeleveryTab from './Tab/DeliveryTab';
 import FabricTab from './Tab/FabricTab';
 import ProductBuyInfoTab from './Tab/ProductBuyInfoTab';
@@ -46,8 +47,8 @@ const DesktopShopDetailItem = () => {
                <DesktopCarousel />
             </section>
 
-            <section className={'flex-1 bg-green'}>
-               <span className={'aspect-[5/6] w-full'}>{'제품 선택 섹션'}</span>
+            <section className={'flex-1 '}>
+               <Options />
             </section>
          </div>
          <div className={'relative w-full items-center text-start column py-[180px] gap-[100px]'} ref={sectionRef}>
@@ -76,6 +77,7 @@ const DesktopShopDetailItem = () => {
             <div className={cc('column gap-[14px] text-p3 left-[40px]', fix ? 'fixed top-[80px] left-0' : 'absolute left-0')}>
                {TabItem.map((it, idx) => (
                   <div
+                     key={idx}
                      onClick={() => onTabChange(idx)}
                      className={cc('transition-all', selectedTab === idx ? 'text-black scale-[110%]' : 'text-gray-2')}
                   >

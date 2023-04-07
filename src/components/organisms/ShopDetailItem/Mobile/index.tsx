@@ -2,6 +2,7 @@ import { cc } from '#utils/string';
 import { Tab } from '@headlessui/react';
 import React from 'react';
 import DesktopCarousel from '../Desktop/DesktopCarousel';
+import Options from '../Desktop/Options';
 import DeleveryTab from '../Desktop/Tab/DeliveryTab';
 import FabricTab from '../Desktop/Tab/FabricTab';
 import ProductBuyInfoTab from '../Desktop/Tab/ProductBuyInfoTab';
@@ -56,8 +57,8 @@ const MobileShopDetailItem = () => {
                <DesktopCarousel />
             </section>
 
-            <section className={'flex-1 bg-green'}>
-               <span className={'aspect-[5/6] w-full'}>{'제품 선택 섹션'}</span>
+            <section className={'flex-1 '}>
+               <Options />
             </section>
          </div>
 
