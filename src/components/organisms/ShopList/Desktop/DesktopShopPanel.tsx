@@ -22,7 +22,7 @@ function DesktopShopPanel(props: Props) {
    const { items } = props;
 
    const [itemOffset, setItemOffset] = React.useState(0);
-   const itemsPerPage = 1;
+   const itemsPerPage = 11;
    const endOffset = itemOffset + itemsPerPage;
    const currentItems = items.slice(itemOffset, endOffset);
    const pageCount = Math.ceil(items.length / itemsPerPage);

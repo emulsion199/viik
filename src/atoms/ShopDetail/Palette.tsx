@@ -1,3 +1,5 @@
+import { cc } from '#utils/string';
+
 interface Props {
    className?: string;
    title: string;
@@ -7,7 +9,7 @@ interface Props {
 const Palette = (props: Props) => {
    const { className, title, colors, desc } = props;
    return (
-      <div className={'column'}>
+      <div className={cc('column', className)}>
          <span className={'text-p2  pb-3 '}>{title}</span>
          <div className={'row gap-1'}>
             {colors.map((it, idx) => (

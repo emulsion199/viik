@@ -23,7 +23,6 @@ const OptionList = (props: Props) => {
             ))}
          </div>
          <span>{desc}</span>
-         <hr className={'mt-[20px]'} />
       </div>
    );
 };

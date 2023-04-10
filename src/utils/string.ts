@@ -29,3 +29,9 @@ export function formatPhone(phone: string, separator = '-') {
 
    return [phone.slice(0, 3), phone.slice(3, 7), phone.slice(7)].filter(Boolean).join(separator);
 }
+
+// export const formatNumber(number: string)
+// {
+//    number = getNumberText(number)
+
+// }
