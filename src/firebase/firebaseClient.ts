@@ -53,6 +53,7 @@ export const addData = async (data: object,path:string,id:string) => {
       }));
   
       console.log(data);
+      return data;
     } catch (e) {
       console.error("Error getting document: ", e);
     }
