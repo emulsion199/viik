@@ -13,7 +13,7 @@ export type ShopItem = {
    desc: string;
    type: 'SOFA' | 'TABLE';
    imgsrc: StaticImageData;
-   imglink: string;
+   imglink: string[];
    options: Option[];
 };
 export type Option = {
@@ -30,7 +30,7 @@ export const ShopItemList: ShopItem[] = [
       alias: 'FORLI',
       desc: '적당한 높이의 다리와 넉넉히 올라오는 좌방석의 높이, FORLI\n더욱 여유롭고 깔끔한 공간의 완성\n체격이 큰 구성원도 편안한 소파',
       imgsrc: SHOP_1,
-      imglink: "url('/shop/shop_1.png')",
+      imglink: ["url('/shop/detail/forlisofa.jpeg')", "url('/shop/detail/forlisofa2.jpeg')"],
       type: 'SOFA',
       options: [
          {
@@ -60,12 +60,18 @@ export const ShopItemList: ShopItem[] = [
             duplicate: false,
          },
          {
-            title: '사이즈 (중복 선택 가능)',
+            title: '사이즈',
             item: [
-               { name: 'LEFT SIDE', price: 0 },
-               { name: 'RIGHT SIDE', price: 0 },
+               { name: 'LEFT SIDE', price: 2210000 },
+               { name: 'RIGHT SIDE', price: 2210000 },
+               { name: 'MIDDLE', price: 1950000 },
+               { name: 'MID-TRAY', price: 2850000 },
+               { name: 'FORLI DOUBLE', price: 4300000 },
+               { name: 'FORLI TRIPLE', price: 6370000 },
+               { name: 'FORLI QUAD', price: 8320000 },
+               { name: 'FORLI DUAL', price: 7270000 },
             ],
-            duplicate: true,
+            duplicate: false,
          },
          {
             title: '등, 팔 쿠션 내장재',
@@ -93,7 +99,7 @@ export const ShopItemList: ShopItem[] = [
       alias: 'COMO',
       desc: '든든하게 어깨까지 받쳐줄 COMO\n나이에 관계 없이 반듯한 자세는 누구에게나 중요하니까\n낮은 좌방석으로 아이들도, 반려동물도 안전하게',
       imgsrc: SHOP_2,
-      imglink: "url('/shop/shop_2.png')",
+      imglink: ["url('/shop/detail/comosofa.jpeg')", "url('/shop/detail/comosofa2.jpeg')"],
       type: 'SOFA',
       options: [
          {
@@ -122,12 +128,21 @@ export const ShopItemList: ShopItem[] = [
             duplicate: false,
          },
          {
-            title: '사이즈 (중복 선택 가능)',
+            title: '사이즈',
             item: [
-               { name: 'LEFT SIDE', price: 0 },
-               { name: 'RIGHT SIDE', price: 0 },
+               { name: 'LEFT SIDE', price: 2145000 },
+               { name: 'RIGHT SIDE', price: 2145000 },
+               { name: 'MIDDLE', price: 1965000 },
+               { name: 'OTTOMAN', price: 1750000 },
+               { name: 'COUCH LEFT SIDE', price: 2650000 },
+               { name: 'COUCH RIGHT SIDE', price: 2650000 },
+               { name: 'DOUBLE', price: 4290000 },
+               { name: 'TRIPLE', price: 6255000 },
+               { name: 'QUAD', price: 8220000 },
+               { name: 'ALPHA-TRIPLE', price: 6760000 },
+               { name: 'ALPHA-QUAD', price: 8725000 },
             ],
-            duplicate: true,
+            duplicate: false,
          },
          {
             title: '등, 팔 쿠션 내장재',
@@ -154,7 +169,7 @@ export const ShopItemList: ShopItem[] = [
       alias: 'BATON',
       desc: '원목 자체가 주는 자연스러우면서 무게감 있는 분위기',
       imgsrc: SHOP_3,
-      imglink: "url('/shop/shop_3.png')",
+      imglink: ["url('/shop/detail/batontable.jpeg')", "url('/shop/detail/batontable2.jpeg')"],
       type: 'TABLE',
       options: [
          {
@@ -167,13 +182,12 @@ export const ShopItemList: ShopItem[] = [
          },
 
          {
-            title: '사이즈 (중복 선택 가능)',
+            title: '사이즈',
             item: [
-               { name: '1680*800*740', price: 0 },
-               { name: '2000*800*740', price: 0 },
-               { name: '1200*600*340', price: 0 },
+               { name: 'DINING TABLE(2000*800*800)', price: 4250000 },
+               { name: 'SOFA TABLE(1200*600*340)', price: 1500000 },
             ],
-            duplicate: true,
+            duplicate: false,
          },
       ],
    },

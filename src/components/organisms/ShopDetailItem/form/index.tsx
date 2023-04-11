@@ -9,6 +9,7 @@ const schema = z.object({
       z.object({
          title: z.string(),
          option: z.string(),
+         price: z.number(),
       })
    ),
 });

@@ -5,7 +5,7 @@ import React from 'react';
 interface Props {
    className?: string;
    option: Option;
-   onChange: (item: { title: string; option: string }, duplicate: boolean) => void;
+   onChange: (item: { title: string; option: string; price: number }, duplicate: boolean) => void;
    value: { title: string; option: string }[];
 }
 
@@ -15,12 +15,12 @@ const OptionList = (props: Props) => {
    return (
       <div className={cc('column ', className)}>
          <span className={'text-p3 pb-[17px]'}>{option.title}</span>
-         <div className={'row gap-1'}>
+         <div className={'row gap-1 flex-wrap'}>
             {option.item.map((it, idx) => (
                <button
                   type={'button'}
                   onClick={() => {
-                     onChange({ title: option.title, option: it.name }, option.duplicate);
+                     onChange({ title: option.title, option: it.name, price: it.price }, option.duplicate);
                      setSelectedIdx(idx);
                   }}
                   key={idx}

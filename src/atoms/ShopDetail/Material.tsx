@@ -5,7 +5,7 @@ import React from 'react';
 interface Props {
    className?: string;
    option: Option;
-   onChange: (item: { title: string; option: string }, duplicate: boolean) => void;
+   onChange: (item: { title: string; option: string; price: number }, duplicate: boolean) => void;
    value: { title: string; option: string }[];
 }
 const Material = (props: Props) => {
@@ -26,7 +26,7 @@ const Material = (props: Props) => {
                            : ''
                      )}
                      onClick={() => {
-                        onChange({ title: option.title, option: it.name }, option.duplicate);
+                        onChange({ title: option.title, option: it.name, price: it.price }, option.duplicate);
                         setMaterial(idx);
                      }}
                   >

@@ -49,7 +49,7 @@ const DesktopShopDetailItem = () => {
          <h1 className={'font-[reckless] text-[62px] pb-[40px]'}>{itemInfo?.alias}</h1>
          <div className={'row  px-[50px] flex-1 w-full gap-[37px]'}>
             <section className={'flex-1 '}>
-               <DesktopCarousel imglink={itemInfo?.imglink ?? ''} />
+               <DesktopCarousel imglink={itemInfo?.imglink ?? []} />
             </section>
 
             <section className={'flex-1 '}>{itemInfo && <Options item={itemInfo} />}</section>

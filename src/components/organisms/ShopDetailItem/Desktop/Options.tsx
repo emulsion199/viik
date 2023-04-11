@@ -29,7 +29,7 @@ const Options = (props: Props) => {
    const [open, toggle] = React.useReducer(x => !x, false);
 
    const onChangeOption = React.useCallback(
-      (item: { title: string; option: string }, duplicate: boolean) => {
+      (item: { title: string; option: string; price: number }, duplicate: boolean) => {
          const option = options.field.value;
          //아예 똑같은 옵션일 때
          const sameOption = option.find(it => it.title === item.title && it.option === item.option);
@@ -72,8 +72,8 @@ const Options = (props: Props) => {
    }, []);
 
    return mount ? (
-      <form onSubmit={handleSubmit(onSubmit)}>
-         <section className={cc('column h-full justify-between gap-3')}>
+      <form onSubmit={handleSubmit(onSubmit)} className={'column h-full'}>
+         <section className={cc('column h-full flex-1  gap-3')}>
             {item.options.map((it, idx) => {
                if (it.item[0].imgsrc)
                   return (
@@ -116,7 +116,7 @@ const Options = (props: Props) => {
          <section className={isMobile ? 'fixed bottom-0 w-full z-30 ' : ''}>
             <div className={cc(isMobile ? 'h-12 py-2 px-3 border-t border-gray-3 ' : '', 'row justify-between text-p3 pt-2 bg-white')}>
                <span>{'총 상품금액'}</span>
-               <span>{`${formatNumber(20120)} 원`}</span>
+               <span>{`${formatNumber(options.field.value.reduce((a, b) => a + b.price, 0))} 원`}</span>
             </div>
             <button
                onClick={toggle}

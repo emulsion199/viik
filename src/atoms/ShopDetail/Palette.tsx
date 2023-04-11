@@ -5,7 +5,7 @@ import React from 'react';
 interface Props {
    className?: string;
    option: Option;
-   onChange: (item: { title: string; option: string }, duplicate: boolean) => void;
+   onChange: (item: { title: string; option: string; price: number }, duplicate: boolean) => void;
    value: { title: string; option: string }[];
 }
 const Palette = (props: Props) => {
@@ -19,7 +19,7 @@ const Palette = (props: Props) => {
                   key={idx}
                   type={'button'}
                   onClick={() => {
-                     onChange({ title: option.title, option: it.name }, option.duplicate);
+                     onChange({ title: option.title, option: it.name, price: it.price }, option.duplicate);
                   }}
                   className={cc(
                      'w-9 h-9 flex items-center justify-center transition-all outline-none',
