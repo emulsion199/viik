@@ -16,6 +16,7 @@ const Palette = (props: Props) => {
          <div className={'row gap-1'}>
             {option.item.map((it, idx) => (
                <button
+                  type={'button'}
                   onClick={() => {
                      onChange({ title: option.title, option: it.name }, option.duplicate);
                   }}

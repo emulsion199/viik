@@ -2,14 +2,15 @@ import ConsultFormRegister from '#components/organisms/ConsultFormRegister';
 import { ShopItem } from '#constants/shop';
 import { useMobile } from '#hooks/useMobile';
 import { useMount } from '#hooks/useMount';
-import { cc } from '#utils/string';
+import { cc, formatNumber } from '#utils/string';
 import React from 'react';
 import { useController, useFieldArray } from 'react-hook-form';
 import Modal from 'src/atoms/Modal';
 import Material from 'src/atoms/ShopDetail/Material';
 import OptionList from 'src/atoms/ShopDetail/OptionList';
 import Palette from 'src/atoms/ShopDetail/Palette';
-import { useShopOptionForm } from '../form';
+import useOrderStore from 'src/store/useOrderStore';
+import { shopOptionData, useShopOptionForm } from '../form';
 
 interface Props {
    item: ShopItem;
@@ -17,7 +18,7 @@ interface Props {
 const Options = (props: Props) => {
    const { item } = props;
    const isMobile = useMobile(1000);
-   const { control, formState, setValue } = useShopOptionForm(item.options.length);
+   const { control, formState, setValue, handleSubmit } = useShopOptionForm(item.options.length);
    const options = useController({
       control,
       name: 'options',
@@ -57,9 +58,15 @@ const Options = (props: Props) => {
 
    //mount
    const mount = useMount();
+   //submit
+   const orderStore = useOrderStore();
+
+   const onSubmit = React.useCallback((data: shopOptionData) => {
+      orderStore.setOptions(data.options);
+   }, []);
 
    return mount ? (
-      <div>
+      <form onSubmit={handleSubmit(onSubmit)}>
          <section className={cc('column h-full justify-between gap-3')}>
             {item.options.map((it, idx) => {
                if (it.item[0].imgsrc)
@@ -103,7 +110,7 @@ const Options = (props: Props) => {
          <section className={isMobile ? 'fixed bottom-0 w-full z-30 ' : ''}>
             <div className={cc(isMobile ? 'h-12 py-2 px-3 border-t border-gray-3 ' : '', 'row justify-between text-p3 pt-2 bg-white')}>
                <span>{'총 상품금액'}</span>
-               <span>{'123,123 원'}</span>
+               <span>{`${formatNumber(20120)} 원`}</span>
             </div>
             <button
                onClick={toggle}
@@ -116,7 +123,7 @@ const Options = (props: Props) => {
          <Modal title={''} open={open} toggle={toggle}>
             <ConsultFormRegister className={'p-3'} />
          </Modal>
-      </div>
+      </form>
    ) : (
       <></>
    );

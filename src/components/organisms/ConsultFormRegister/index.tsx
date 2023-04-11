@@ -10,6 +10,7 @@ import { Button } from 'src/atoms/Button';
 import { Input } from 'src/atoms/Input';
 import { Label } from 'src/atoms/Label';
 import useConsultStore from 'src/store/useConsultStore';
+import useOrderStore from 'src/store/useOrderStore';
 import useConsultFormRegister, { ConsultFormRegisterData } from './form';
 
 //STYLE
@@ -33,8 +34,12 @@ const ConsultFormRegister = (props: Props) => {
    const address_valid = useController({ control, name: 'address_valid' });
 
    const privacyAccept = useController({ control, name: 'privacyAccept' });
+
+   const orderStore = useOrderStore();
+
    const submit = React.useCallback((data: ConsultFormRegisterData) => {
       const { name, phone, address, address_detail, privacyAccept } = data;
+      console.log(orderStore.options);
       setLevel(2);
       console.log(data);
    }, []);

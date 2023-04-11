@@ -18,6 +18,7 @@ const Material = (props: Props) => {
             {option.item.map((it, idx) => (
                <div className={'text-center'}>
                   <button
+                     type={'button'}
                      className={cc(
                         'w-[91px] h-[96px] block outline-none transition-all',
                         value.find(val => val.option === it.name && val.title === option.title)
