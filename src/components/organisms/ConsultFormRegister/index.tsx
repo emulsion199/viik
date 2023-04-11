@@ -9,6 +9,7 @@ import { useController } from 'react-hook-form';
 import { Button } from 'src/atoms/Button';
 import { Input } from 'src/atoms/Input';
 import { Label } from 'src/atoms/Label';
+import { addData } from 'src/firebase/firebaseClient';
 import useConsultStore from 'src/store/useConsultStore';
 import useOrderStore from 'src/store/useOrderStore';
 import useConsultFormRegister, { ConsultFormRegisterData } from './form';
@@ -39,9 +40,8 @@ const ConsultFormRegister = (props: Props) => {
 
    const submit = React.useCallback((data: ConsultFormRegisterData) => {
       const { name, phone, address, address_detail, privacyAccept } = data;
-      console.log(orderStore.options);
+      addData({ ...data, item: Object.assign({}, orderStore.options) }, 'purchase');
       setLevel(2);
-      console.log(data);
    }, []);
    //HYDRATION ERROR
    const mounted = useMount();

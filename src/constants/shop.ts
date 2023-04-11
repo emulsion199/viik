@@ -3,8 +3,10 @@ import { StaticImageData } from 'next/image';
 import SHOP_1 from '../../public/shop/shop_1.png';
 import SHOP_2 from '../../public/shop/shop_2.png';
 import SHOP_3 from '../../public/shop/shop_3.png';
+import { PATH } from './path';
 
 export type ShopItem = {
+   link: string;
    code: string;
    alias?: string;
    title: string;
@@ -22,6 +24,7 @@ export type Option = {
 };
 export const ShopItemList: ShopItem[] = [
    {
+      link: PATH.shop_detail + '?code=0',
       code: '0',
       title: 'FORLI 소파',
       alias: 'FORLI',
@@ -84,6 +87,7 @@ export const ShopItemList: ShopItem[] = [
    },
 
    {
+      link: PATH.shop_detail + '?code=1',
       code: '1',
       title: 'COMO 소파',
       alias: 'COMO',
@@ -144,6 +148,7 @@ export const ShopItemList: ShopItem[] = [
       ],
    },
    {
+      link: PATH.shop_detail + '?code=2',
       code: '2',
       title: 'BATON 테이블',
       alias: 'BATON',

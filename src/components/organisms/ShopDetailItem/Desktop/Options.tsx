@@ -1,14 +1,16 @@
 import ConsultFormRegister from '#components/organisms/ConsultFormRegister';
+import ConsultFormSuccess from '#components/organisms/ConsultFormSuccess';
 import { ShopItem } from '#constants/shop';
 import { useMobile } from '#hooks/useMobile';
 import { useMount } from '#hooks/useMount';
 import { cc, formatNumber } from '#utils/string';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useController, useFieldArray } from 'react-hook-form';
 import Modal from 'src/atoms/Modal';
 import Material from 'src/atoms/ShopDetail/Material';
 import OptionList from 'src/atoms/ShopDetail/OptionList';
 import Palette from 'src/atoms/ShopDetail/Palette';
+import useConsultStore from 'src/store/useConsultStore';
 import useOrderStore from 'src/store/useOrderStore';
 import { shopOptionData, useShopOptionForm } from '../form';
 
@@ -60,7 +62,11 @@ const Options = (props: Props) => {
    const mount = useMount();
    //submit
    const orderStore = useOrderStore();
-
+   const consultStore = useConsultStore();
+   const { setLevel } = consultStore;
+   useEffect(() => {
+      setLevel(1);
+   }, [setLevel]);
    const onSubmit = React.useCallback((data: shopOptionData) => {
       orderStore.setOptions(data.options);
    }, []);
@@ -121,7 +127,7 @@ const Options = (props: Props) => {
          </section>
 
          <Modal title={''} open={open} toggle={toggle}>
-            <ConsultFormRegister className={'p-3'} />
+            {consultStore.level == 1 ? <ConsultFormRegister className={'p-3'} /> : <ConsultFormSuccess />}
          </Modal>
       </form>
    ) : (
