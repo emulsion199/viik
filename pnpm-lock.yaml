@@ -33,6 +33,7 @@ specifiers:
   typescript: 4.9.5
   zod: ^3.21.4
   zustand: ^4.3.6
+  zustand-persist: ^0.4.0
 
 dependencies:
   '@headlessui/react': 1.7.13_biqbaboplfbrettd7655fr4n2y
@@ -61,6 +62,7 @@ dependencies:
   typescript: 4.9.5
   zod: 3.21.4
   zustand: 4.3.6_react@18.2.0
+  zustand-persist: 0.4.0_react@18.2.0+zustand@4.3.6
 
 devDependencies:
   autoprefixer: 10.4.13_postcss@8.4.21
@@ -4301,6 +4303,16 @@ packages:
 
   /zod/3.21.4:
     resolution: {integrity: sha512-m46AKbrzKVzOzs/DZgVnG5H55N1sv1M8qZU3A8RIKbs3mrACDNeIOeilDymVb2HdmP8uwshOCF4uJ8uM9rCqJw==}
+    dev: false
+
+  /zustand-persist/0.4.0_react@18.2.0+zustand@4.3.6:
+    resolution: {integrity: sha512-u6bBIc4yZRpSKBKuTNhoqvoIb09gGHk2NkiPg4K7MPIWTYZg70PlpBn48QEDnKZwfNurnf58TaW5BuMGIMf5hw==}
+    peerDependencies:
+      react: '>=16.8.0'
+      zustand: '>=3.6.3'
+    dependencies:
+      react: 18.2.0
+      zustand: 4.3.6_react@18.2.0
     dev: false
 
   /zustand/4.3.6_react@18.2.0:

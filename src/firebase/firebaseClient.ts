@@ -24,17 +24,15 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 // Firestore DB 인스턴스 가져오기
-getAuth
 const db = getFirestore(app);
 
 // 데이터 추가하기
 // path 컬렉션이 이미 생성되어있으면 추가 || 아니면 컬렉션 생성 후 데이터 create
 // 해당 아이디의 데이터가 이미 존재하면 덮어쓰기 때문에 중복되지않게 주의!
 
-export const addData = async (data: object,path:string,id:string) => { 
+export const addData = async (data: object,path:string) => { 
     try {
-       const docRef = doc(db,path,id);
-       await setDoc(docRef,data);
+      const docRef = await addDoc(collection(db, path), data);
        console.log('Document written with ID: ', docRef.id);
     } catch (e) {
        console.error('Error adding document: ', e);
@@ -53,6 +51,7 @@ export const addData = async (data: object,path:string,id:string) => {
       }));
   
       console.log(data);
+      return data;
     } catch (e) {
       console.error("Error getting document: ", e);
     }
