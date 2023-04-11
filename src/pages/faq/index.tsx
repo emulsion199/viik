@@ -1,17 +1,16 @@
+import ICON_ARROW_DOWN from '#assets/icons/arrow/arrow_down.svg';
+import ICON_ARROW_UP from '#assets/icons/arrow/arrow_up.svg';
+import DesktopFooter from '#components/organisms/Footer/Desktop';
+import MobileFooter from '#components/organisms/Footer/Mobile';
 import DesktopNavbar from '#components/organisms/Navbar/Desktop';
 import MobileNavbar from '#components/organisms/Navbar/Mobile';
 import RootTemplate from '#components/Template/RootTemplate';
 import { FaqCategory, FaqItems } from '#constants/faq';
 import { useMobile } from '#hooks/useMobile';
 import { Disclosure } from '@headlessui/react';
-import { motion } from 'framer-motion';
+import Image from 'next/image';
 import React from 'react';
 import useBgStore from 'src/store/useTextColor';
-import ICON_ARROW_DOWN from '#assets/icons/arrow/arrow_down.svg';
-import ICON_ARROW_UP from '#assets/icons/arrow/arrow_up.svg';
-import Image from 'next/image';
-import MobileFooter from '#components/organisms/Footer/Mobile';
-import DesktopFooter from '#components/organisms/Footer/Desktop';
 
 const FAQ = () => {
    const { setImageId } = useBgStore();

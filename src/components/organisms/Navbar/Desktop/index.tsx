@@ -23,7 +23,7 @@ const Item = (props: ItemProps) => {
    const type = useRouteHook();
 
    const hoverHandle = React.useCallback(() => {
-      if (title === 'SHOP' && type === 0) setIsOpen(true);
+      if (title === '_' && type === 0) setIsOpen(true);
    }, []);
    return (
       <span onMouseOver={hoverHandle} onMouseOut={() => setIsOpen(false)} className='relative '>
@@ -35,8 +35,8 @@ const Item = (props: ItemProps) => {
             )}
          </AnimatePresence>
          <button
-            style={{ color: imageId !== 3 ? 'white' : '#101011', transition: `${type === 0 ? 'all ease 1s' : ''}` }}
-            className=' text-base hover:'
+            style={{ color: imageId !== 3 ? 'white' : '#101011', transition: `${type === 0 ? 'all ease 0.3s' : ''}` }}
+            className=' text-base hover:scale-110'
          >
             {title}
          </button>

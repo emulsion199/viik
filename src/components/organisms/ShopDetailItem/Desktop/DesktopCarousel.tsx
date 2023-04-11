@@ -3,8 +3,12 @@ import useEmblaCarousel from 'embla-carousel-react';
 import Image, { StaticImageData } from 'next/image';
 import React, { useState } from 'react';
 
-const DesktopCarousel = () => {
-   const slides = [1, 2, 3, 4];
+interface Props {
+   imglink: string;
+}
+const DesktopCarousel = (props: Props) => {
+   const { imglink } = props;
+   const slides = [1];
 
    const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, []);
 
@@ -26,8 +30,7 @@ const DesktopCarousel = () => {
                      <div
                         style={{
                            flex: '0 0 100%',
-
-                           backgroundImage: 'url(' + `/shop/shop_${it}.png` + ')',
+                           backgroundImage: imglink,
                            backgroundSize: 'cover',
                            backgroundPosition: 'center',
                            backgroundRepeat: 'no-repeat',

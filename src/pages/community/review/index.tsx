@@ -1,20 +1,7 @@
-import CommunityItem from '#components/organisms/Community/CommunityItem';
 import MenuIndex from '#components/organisms/Community/MenuIndex/MenuIndex';
 import ReviewItem, { ReviewItemProps } from '#components/organisms/Community/ReviewItem';
-import DesktopFooter from '#components/organisms/Footer/Desktop';
-import MobileFooter from '#components/organisms/Footer/Mobile';
-import DesktopNavbar from '#components/organisms/Navbar/Desktop';
-import MobileNavbar from '#components/organisms/Navbar/Mobile';
-import RootTemplate from '#components/Template/RootTemplate';
 import SecondaryTemplate from '#components/Template/SecondaryTemplate';
-import { PATH } from '#constants/path';
 import { useMobile } from '#hooks/useMobile';
-import { useMount } from '#hooks/useMount';
-import { Tab } from '@headlessui/react';
-import { motion } from 'framer-motion';
-import Link from 'next/link';
-import React from 'react';
-import useBgStore from 'src/store/useTextColor';
 
 const data: ReviewItemProps[] = [
    {

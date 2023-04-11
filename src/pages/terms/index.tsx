@@ -5,7 +5,6 @@ import MobileNavbar from '#components/organisms/Navbar/Mobile';
 import RootTemplate from '#components/Template/RootTemplate';
 import { TermsText } from '#constants/termsText';
 import { useMobile } from '#hooks/useMobile';
-import { motion } from 'framer-motion';
 import React from 'react';
 import useBgStore from 'src/store/useTextColor';
 

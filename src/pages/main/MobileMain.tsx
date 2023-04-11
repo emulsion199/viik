@@ -1,6 +1,5 @@
 import MobileNavbar from '#components/organisms/Navbar/Mobile';
 import useBgStore from 'src/store/useTextColor';
-import { motion } from 'framer-motion';
 const MobileMain = () => {
    const { imageId } = useBgStore();
    return (

@@ -1,4 +1,6 @@
+import { ShopItemList } from '#constants/shop';
 import { cc } from '#utils/string';
+import { useRouter } from 'next/router';
 import React from 'react';
 import { useTabChange } from '../useTabChange';
 import DesktopCarousel from './DesktopCarousel';
@@ -22,6 +24,9 @@ const TabItem = [
    // '리뷰',
 ];
 const DesktopShopDetailItem = () => {
+   //ITEM
+   const code = useRouter().query.code;
+   const itemInfo = ShopItemList.find(it => it.code === code);
    //SCROLL
    const [fix, setFix] = React.useState(false);
    const sectionRef = React.useRef<HTMLDivElement>(null);
@@ -41,15 +46,13 @@ const DesktopShopDetailItem = () => {
 
    return (
       <div className={'column justify-center items-center  bg-white w-full'} ref={tabRef}>
-         <h1 className={'font-[reckless] text-[62px] pb-[40px]'}>{'Forli'}</h1>
+         <h1 className={'font-[reckless] text-[62px] pb-[40px]'}>{itemInfo?.alias}</h1>
          <div className={'row  px-[50px] flex-1 w-full gap-[37px]'}>
             <section className={'flex-1 '}>
-               <DesktopCarousel />
+               <DesktopCarousel imglink={itemInfo?.imglink ?? ''} />
             </section>
 
-            <section className={'flex-1 '}>
-               <Options />
-            </section>
+            <section className={'flex-1 '}>{itemInfo && <Options item={itemInfo} />}</section>
          </div>
          <div className={'relative w-full items-center text-start column py-[180px] gap-[100px]'} ref={sectionRef}>
             <div ref={el => (childRef.current[0] = el)}>
