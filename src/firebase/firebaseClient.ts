@@ -1,6 +1,8 @@
 
 import { initializeApp } from "firebase/app";
+import {getAuth, signInWithEmailAndPassword} from 'firebase/auth'
 import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, getFirestore, setDoc, updateDoc } from "firebase/firestore";
+
 // Import the functions you need from the SDKs you need
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -22,7 +24,8 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 // Firestore DB 인스턴스 가져오기
-export const db = getFirestore(app);
+getAuth
+const db = getFirestore(app);
 
 // 데이터 추가하기
 // path 컬렉션이 이미 생성되어있으면 추가 || 아니면 컬렉션 생성 후 데이터 create
@@ -92,4 +95,23 @@ export const deleteData = async (id:string,path:string) => {
     }
   };
 
+
+
+
+
+const auth = getAuth(app);
+
+export const loginWithEmail = async (email:string, password:string) => {
+  try {
+    const userCredential = await signInWithEmailAndPassword(auth,email, password);
+    const user = userCredential.user;
+    console.log(user);
+    return true
+  } catch (error) {
+    
+    console.error(error);
+    return false;
+  }
+
+}
 
