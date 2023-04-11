@@ -18,6 +18,7 @@ export type Option = {
    title: string;
    item: { name: string; price: number; color?: string; imgsrc?: string }[];
    desc?: string;
+   duplicate: boolean;
 };
 export const ShopItemList: ShopItem[] = [
    {
@@ -41,6 +42,7 @@ export const ShopItemList: ShopItem[] = [
                { name: '딥 블루', price: 0, color: '#2F3C4A' },
                { name: '소프트 아이보리', price: 0, color: '#DFE0DC' },
             ],
+            duplicate: false,
          },
          {
             title: 'KETS TWEET',
@@ -52,6 +54,7 @@ export const ShopItemList: ShopItem[] = [
                { name: '딥 블루', price: 0, color: '#272D38' },
                { name: '딥 그린', price: 0, color: '#414231' },
             ],
+            duplicate: false,
          },
          {
             title: '사이즈 (중복 선택 가능)',
@@ -59,6 +62,7 @@ export const ShopItemList: ShopItem[] = [
                { name: 'LEFT SIDE', price: 0 },
                { name: 'RIGHT SIDE', price: 0 },
             ],
+            duplicate: true,
          },
          {
             title: '등, 팔 쿠션 내장재',
@@ -66,6 +70,7 @@ export const ShopItemList: ShopItem[] = [
                { name: '마이크로 화이버', price: 0 },
                { name: '향균 파워솜', price: 0 },
             ],
+            duplicate: false,
          },
          {
             title: '좌방석 내장재',
@@ -73,6 +78,7 @@ export const ShopItemList: ShopItem[] = [
                { name: '마이크로 화이버', price: 0 },
                { name: 'HR 골드스펀지', price: 0 },
             ],
+            duplicate: false,
          },
       ],
    },
@@ -97,6 +103,7 @@ export const ShopItemList: ShopItem[] = [
                { name: '딥 블루', price: 0, color: '#2F3C4A' },
                { name: '소프트 아이보리', price: 0, color: '#DFE0DC' },
             ],
+            duplicate: false,
          },
          {
             title: 'KETS TWEET',
@@ -108,6 +115,7 @@ export const ShopItemList: ShopItem[] = [
                { name: '딥 블루', price: 0, color: '#272D38' },
                { name: '딥 그린', price: 0, color: '#414231' },
             ],
+            duplicate: false,
          },
          {
             title: '사이즈 (중복 선택 가능)',
@@ -115,6 +123,7 @@ export const ShopItemList: ShopItem[] = [
                { name: 'LEFT SIDE', price: 0 },
                { name: 'RIGHT SIDE', price: 0 },
             ],
+            duplicate: true,
          },
          {
             title: '등, 팔 쿠션 내장재',
@@ -122,6 +131,7 @@ export const ShopItemList: ShopItem[] = [
                { name: '마이크로 화이버', price: 0 },
                { name: '향균 파워솜', price: 0 },
             ],
+            duplicate: false,
          },
          {
             title: '좌방석 내장재',
@@ -129,6 +139,7 @@ export const ShopItemList: ShopItem[] = [
                { name: '마이크로 화이버', price: 0 },
                { name: 'HR 골드스펀지', price: 0 },
             ],
+            duplicate: false,
          },
       ],
    },
@@ -147,6 +158,7 @@ export const ShopItemList: ShopItem[] = [
                { name: 'Walnut', price: 0, imgsrc: "url('/shop/material/walnut.png')" },
                { name: 'White Oak', price: 0, imgsrc: "url('/shop/material/white_oak.png')" },
             ],
+            duplicate: false,
          },
 
          {
@@ -156,6 +168,7 @@ export const ShopItemList: ShopItem[] = [
                { name: '2000*800*740', price: 0 },
                { name: '1200*600*340', price: 0 },
             ],
+            duplicate: true,
          },
       ],
    },

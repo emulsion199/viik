@@ -5,10 +5,11 @@ import React from 'react';
 interface Props {
    className?: string;
    option: Option;
-   onChange: (item: { title: string; option: string }) => void;
+   onChange: (item: { title: string; option: string }, duplicate: boolean) => void;
+   value: { title: string; option: string }[];
 }
 const Material = (props: Props) => {
-   const { className, option, onChange } = props;
+   const { className, option, onChange, value } = props;
    const [material, setMaterial] = React.useState(99);
    return (
       <div className={cc('column', className)}>
@@ -19,10 +20,12 @@ const Material = (props: Props) => {
                   <button
                      className={cc(
                         'w-[91px] h-[96px] block outline-none transition-all',
-                        material === idx ? ' outline-black outline outline-offset-0 outline-1' : ''
+                        value.find(val => val.option === it.name && val.title === option.title)
+                           ? ' outline-black outline outline-offset-0 outline-1'
+                           : ''
                      )}
                      onClick={() => {
-                        onChange({ title: option.title, option: it.name });
+                        onChange({ title: option.title, option: it.name }, option.duplicate);
                         setMaterial(idx);
                      }}
                   >

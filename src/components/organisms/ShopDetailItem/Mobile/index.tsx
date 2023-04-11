@@ -71,7 +71,7 @@ const MobileShopDetailItem = () => {
                onTabChange(it, 110);
             }}
          >
-            <Tab.List className='h-12 row w-full border-b  border-b-gray-3 row text-p3 font-medium bg-white z-40 sticky top-[64px]'>
+            <Tab.List className='h-12 row w-full border-b  border-b-gray-3 row text-p3 font-medium bg-white z-20 sticky top-[64px]'>
                <Tab className={stylesTab}>
                   <span className={stylesTabBorder}>{'상세 정보'}</span>
                </Tab>
