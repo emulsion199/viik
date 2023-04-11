@@ -40,10 +40,10 @@ const DesktopCarousel = (props: Props) => {
                   ))}
                </div>
                <button className={'row absolute bottom-[10px] right-[10px] items-center'}>
-                  <p className={'row  text-gray-2 text-p2'}>
+                  <span className={'row  text-gray-2 text-p2'}>
                      {selectedIndex + 1}
-                     <p className={'text-gray-200'}>/{slides.length}</p>
-                  </p>
+                     <span className={'text-gray-200'}>/{slides.length}</span>
+                  </span>
                </button>
             </div>
          )}

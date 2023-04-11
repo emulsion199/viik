@@ -34,10 +34,7 @@ const Item = (props: ItemProps) => {
                </DesktopMenuModal>
             )}
          </AnimatePresence>
-         <button
-            style={{ color: imageId !== 3 ? 'white' : '#101011', transition: `${type === 0 ? 'all ease 0.3s' : ''}` }}
-            className=' text-base hover:scale-110'
-         >
+         <button style={{ color: imageId !== 3 ? 'white' : '#101011' }} className=' text-base hover:scale-110 transition-all'>
             {title}
          </button>
       </span>

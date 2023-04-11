@@ -77,7 +77,7 @@ const Options = (props: Props) => {
             {item.options.map((it, idx) => {
                if (it.item[0].imgsrc)
                   return (
-                     <>
+                     <div key={idx}>
                         <Material
                            onChange={onChangeOption}
                            className={isMobile ? 'px-3 py-2' : ''}
@@ -85,11 +85,11 @@ const Options = (props: Props) => {
                            value={options.field.value}
                         />
                         <hr className={'mt-3 '} />
-                     </>
+                     </div>
                   );
                if (it.item[0].color)
                   return (
-                     <>
+                     <div key={idx}>
                         <Palette
                            onChange={onChangeOption}
                            className={isMobile ? 'px-3 py-2' : ''}
@@ -97,11 +97,11 @@ const Options = (props: Props) => {
                            value={options.field.value}
                         />
                         <hr className={'mt-3 '} />
-                     </>
+                     </div>
                   );
                else
                   return (
-                     <>
+                     <div key={idx}>
                         <OptionList
                            onChange={onChangeOption}
                            className={isMobile ? 'px-3 py-2' : ''}
@@ -109,7 +109,7 @@ const Options = (props: Props) => {
                            value={options.field.value}
                         />
                         <hr className={'mt-3 '} />
-                     </>
+                     </div>
                   );
             })}
          </section>
