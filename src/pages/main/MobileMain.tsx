@@ -13,7 +13,7 @@ const MobileMain = () => {
                backgroundRepeat: 'no-repeat',
                transition: 'background-image ease-out 0.5s',
             }}
-            className={'flex items-center w-screen h-screen '}
+            className={'flex items-center w-screen h-[calc(100vh-64px)] '}
          ></div>
       </>
    );
