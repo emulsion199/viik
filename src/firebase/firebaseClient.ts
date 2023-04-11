@@ -74,7 +74,6 @@ export const addData = async (data: object,path:string,id:string) => {
   
 export const updateData = async (id:string, data:object,path:string) => {
     try {
-      console.log('test')
       await updateDoc(doc(db, path, id), data);
       console.log("Document updated");
     } catch (e) {
