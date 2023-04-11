@@ -61,7 +61,7 @@ const Admin = () => {
 
    useEffect(() => {
       const LoadData = async () => {
-         const d = await getDatas('order');
+         const d: any = await getDatas('order');
          console.log('d:', d);
          setLoadData(d);
       };
