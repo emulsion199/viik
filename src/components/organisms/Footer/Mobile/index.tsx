@@ -11,10 +11,8 @@ const MobileFooter = () => {
          <Image src={ICON_LOGO} width={34} height={30} alt='logo' />
          {items.map(item => {
             return (
-               <Link href={item.href}>
-                  <button key={item.title} className='text-[14px]'>
-                     {item.title}
-                  </button>
+               <Link href={item.href} key={item.title}>
+                  <button className='text-[14px]'>{item.title}</button>
                </Link>
             );
          })}
