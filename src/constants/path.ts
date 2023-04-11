@@ -17,5 +17,7 @@ export const PATH = {
    review_detail:BASE+'community/review/detail',
    promotion:BASE+'community/promotion',
    promotion_detail:BASE+'community/promotion/detail',
+   admin:BASE+'admin',
+   admin_login:BASE+'admin/login',
    
 };
