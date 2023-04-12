@@ -40,7 +40,7 @@ const ConsultFormRegister = (props: Props) => {
 
    const submit = React.useCallback((data: ConsultFormRegisterData) => {
       const { name, phone, address, address_detail, privacyAccept } = data;
-      addData({ ...data, item: Object.assign({}, orderStore.options) }, 'purchase');
+      addData({ ...data, item: orderStore.options }, 'purchase');
       setLevel(2);
    }, []);
    //HYDRATION ERROR
@@ -90,12 +90,12 @@ const ConsultFormRegister = (props: Props) => {
             <div className={'row gap-[10px]'}>
                <Input
                   disabled={address_valid.field.value}
-                  className={'w-[266px] '}
+                  className={'flex-1'}
                   placeholder={'예) 문래동 강서타워, 선유로 82'}
                   {...address.field}
                   error={formState.errors.address && true}
                />
-               <button onClick={handleClick} type={'button'} className={'h-12 w-[104px] primary button'}>
+               <button onClick={handleClick} type={'button'} className={'h-12 w-[60px] primary button'}>
                   {'검색'}
                </button>
             </div>

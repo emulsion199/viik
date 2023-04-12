@@ -119,15 +119,17 @@ const Options = (props: Props) => {
                <span>{`${formatNumber(options.field.value.reduce((a, b) => a + b.price, 0))} 원`}</span>
             </div>
             <button
-               onClick={toggle}
+               onClick={() => {
+                  formState.isValid && toggle();
+               }}
                className={cc('primary button transition-all', isMobile ? '' : 'mt-10', !formState.isValid ? 'button !disabled' : '')}
             >
                {'나만의 장바구니'}
             </button>
          </section>
 
-         <Modal title={''} open={open} toggle={toggle}>
-            {consultStore.level == 1 ? <ConsultFormRegister className={'p-3'} /> : <ConsultFormSuccess />}
+         <Modal toggleButton className={'rounded-none'} title={''} open={open} toggle={toggle}>
+            {consultStore.level == 1 ? <ConsultFormRegister /> : <ConsultFormSuccess />}
          </Modal>
       </form>
    ) : (
