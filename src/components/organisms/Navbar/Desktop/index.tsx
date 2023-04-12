@@ -23,7 +23,7 @@ const Item = (props: ItemProps) => {
    const type = useRouteHook();
 
    const hoverHandle = React.useCallback(() => {
-      if (title === 'SHOP' && type === 0) setIsOpen(true);
+      if (title === '_' && type === 0) setIsOpen(true);
    }, []);
    return (
       <span onMouseOver={hoverHandle} onMouseOut={() => setIsOpen(false)} className='relative '>
@@ -34,10 +34,7 @@ const Item = (props: ItemProps) => {
                </DesktopMenuModal>
             )}
          </AnimatePresence>
-         <button
-            style={{ color: imageId !== 3 ? 'white' : '#101011', transition: `${type === 0 ? 'all ease 1s' : ''}` }}
-            className=' text-base hover:'
-         >
+         <button style={{ color: imageId !== 3 ? 'white' : '#101011' }} className=' text-base hover:scale-110 transition-all'>
             {title}
          </button>
       </span>

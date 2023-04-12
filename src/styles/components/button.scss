@@ -1,12 +1,12 @@
 @layer components {
-  .button {
-    @apply h-[60px] w-full;
+   .button {
+      @apply h-[60px] w-full;
 
-    &.primary {
-      @apply bg-primary text-white;
-    }
-    &:disabled {
-      @apply cursor-not-allowed bg-black;
-    }
-  }
+      &.primary {
+         @apply bg-primary text-white;
+      }
+      &.disabled {
+         @apply cursor-not-allowed bg-black;
+      }
+   }
 }

@@ -30,8 +30,12 @@ export function formatPhone(phone: string, separator = '-') {
    return [phone.slice(0, 3), phone.slice(3, 7), phone.slice(7)].filter(Boolean).join(separator);
 }
 
-// export const formatNumber(number: string)
-// {
-//    number = getNumberText(number)
+export function formatNumber(value: number, options: Intl.NumberFormatOptions = {}, locale = 'en-US') {
+   if (Number.isNaN(value)) {
+      return '-';
+   }
 
-// }
+   // Ignore -0 value
+   const next = value === 0 ? 0 : value;
+   return new Intl.NumberFormat(locale, options).format(next);
+}

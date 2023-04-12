@@ -9,7 +9,9 @@ import { useController } from 'react-hook-form';
 import { Button } from 'src/atoms/Button';
 import { Input } from 'src/atoms/Input';
 import { Label } from 'src/atoms/Label';
+import { addData } from 'src/firebase/firebaseClient';
 import useConsultStore from 'src/store/useConsultStore';
+import useOrderStore from 'src/store/useOrderStore';
 import useConsultFormRegister, { ConsultFormRegisterData } from './form';
 
 //STYLE
@@ -33,10 +35,13 @@ const ConsultFormRegister = (props: Props) => {
    const address_valid = useController({ control, name: 'address_valid' });
 
    const privacyAccept = useController({ control, name: 'privacyAccept' });
+
+   const orderStore = useOrderStore();
+
    const submit = React.useCallback((data: ConsultFormRegisterData) => {
       const { name, phone, address, address_detail, privacyAccept } = data;
+      addData({ ...data, item: orderStore.options }, 'purchase');
       setLevel(2);
-      console.log(data);
    }, []);
    //HYDRATION ERROR
    const mounted = useMount();
@@ -85,12 +90,12 @@ const ConsultFormRegister = (props: Props) => {
             <div className={'row gap-[10px]'}>
                <Input
                   disabled={address_valid.field.value}
-                  className={'w-[266px] '}
+                  className={'flex-1'}
                   placeholder={'예) 문래동 강서타워, 선유로 82'}
                   {...address.field}
                   error={formState.errors.address && true}
                />
-               <button onClick={handleClick} type={'button'} className={'h-12 w-[104px] primary button'}>
+               <button onClick={handleClick} type={'button'} className={'h-12 w-[60px] primary button'}>
                   {'검색'}
                </button>
             </div>
