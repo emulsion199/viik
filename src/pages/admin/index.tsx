@@ -2,56 +2,26 @@ import SecondaryTemplate from '#components/Template/SecondaryTemplate';
 import { PATH } from '#constants/path';
 import { useMount } from '#hooks/useMount';
 import { useRouter } from 'next/router';
-import React, { useEffect, useState } from 'react';
-import { getDatas } from 'src/firebase/firebaseClient';
+import React, { Fragment, useEffect, useState } from 'react';
+import { addData, getDatas } from 'src/firebase/firebaseClient';
 import useAuthStore from 'src/store/useAuthStore';
 
-interface CategoryType {
-   주문상태: string;
-   '상품 주문 번호': string;
-   '주문 번호': string;
-   주문일시: string;
-   주문금액: string;
-   상품: string;
-   구매자번호: string;
+interface PurchaseProps {
+   address: string;
+   address_detail: string;
+   address_valid: boolean;
+   item: { option: string; title: string }[];
+   name: string;
+   phone: string;
+   privacyAccept: boolean;
 }
-const Category = ['주문상태', '상품 주문 번호', '주문 번호', '주문일시', '주문금액', '상품', '구매자번호'];
-
-const Data: CategoryType[] = [
-   {
-      주문상태: '주문거부',
-      '상품 주문 번호': '1012012020',
-      '주문 번호': '291912912919',
-      주문일시: '2023.04.11 12:10',
-      주문금액: '110,000',
-      상품: 'Forli 소파',
-      구매자번호: '010-8983-4927',
-   },
-   {
-      주문상태: '주문거부',
-      '상품 주문 번호': '1012012021',
-      '주문 번호': '291912912919',
-      주문일시: '2023.04.11 12:10',
-      주문금액: '110,000',
-      상품: 'Forli 소파',
-      구매자번호: '010-8983-4927',
-   },
-   {
-      주문상태: '주문거부',
-      '상품 주문 번호': '1012012022',
-      '주문 번호': '291912912919',
-      주문일시: '2023.04.11 12:10',
-      주문금액: '110,000',
-      상품: 'Forli 소파',
-      구매자번호: '010-8983-4927',
-   },
-];
-
+const Category = ['address', 'address_detail', 'address_valid', 'item', 'name', 'phone', 'privacyAccept'];
+const Category_Kor = ['주소', '상세 주소', '유효한 주소', '상품', '이름', '전화번호', '개인정보보호'];
 const Admin = () => {
    const authStore = useAuthStore();
    const route = useRouter();
    const [isLogin, setIsLogin] = useState<boolean>(authStore.isLogin);
-   const [loadData, setLoadData] = useState<CategoryType[]>([]);
+   const [Data, setData] = useState<PurchaseProps[]>([]);
 
    useEffect(() => {
       if (!isLogin) {
@@ -61,9 +31,8 @@ const Admin = () => {
 
    useEffect(() => {
       const LoadData = async () => {
-         const d: any = await getDatas('order');
-         console.log('d:', d);
-         setLoadData(d);
+         const data: any = await getDatas('purchase');
+         setData(data);
       };
       void LoadData();
    }, []);
@@ -80,20 +49,35 @@ const Admin = () => {
       mount && (
          <SecondaryTemplate>
             <div className='flex items-center justify-center flex-col'>
-               <section className=''>
-                  <div className='flex flex-row space-x-5'>
-                     {Category.map(c => {
-                        return (
-                           <div key={c} className='flex flex-col'>
-                              <span>{c}</span>
-                              {loadData.map(data => {
-                                 return <span key={data['상품 주문 번호']}>{data[c]}</span>;
-                              })}
-                           </div>
-                        );
-                     })}
-                  </div>
-               </section>
+               <div className='flex flex-row space-x-40'>
+                  {Category_Kor.map((c, index) => {
+                     return (
+                        <span key={index} className='flex flex-col'>
+                           {c}
+                        </span>
+                     );
+                  })}
+               </div>
+               {/* {Data.map(data => {
+                  return (
+                     <Fragment key={data.phone}>
+                        <div>{data.address}</div>
+                        <div>{data.address_detail}</div>
+                        <div>{data.address_valid.toString()}</div>
+                        <div>
+                           {data.item.map(item => (
+                              <Fragment key={item.title}>
+                                 <div>{item.option}</div>
+                                 <div>{item.title}</div>
+                              </Fragment>
+                           ))}
+                        </div>
+                        <div>{data.name}</div>
+                        <div>{data.phone}</div>
+                        <div>{data.privacyAccept.toString()}</div>
+                     </Fragment>
+                  );
+               })} */}
                <button className='w-40 h-10 bg-black text-white' onClick={Logout}>
                   로그아웃
                </button>
