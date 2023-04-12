@@ -61,20 +61,20 @@ const Admin = () => {
                {/* {Data.map(data => {
                   return (
                      <Fragment key={data.phone}>
-                        <div>{data.address}</div>
-                        <div>{data.address_detail}</div>
-                        <div>{data.address_valid.toString()}</div>
+                        <span>{data.address}</span>
+                        <span>{data.address_detail}</span>
+                        <span>{data.address_valid.toString()}</span>
                         <div>
                            {data.item.map(item => (
                               <Fragment key={item.title}>
-                                 <div>{item.option}</div>
-                                 <div>{item.title}</div>
+                                 <span>{item.option}</span>
+                                 <span>{item.title}</span>
                               </Fragment>
                            ))}
                         </div>
-                        <div>{data.name}</div>
-                        <div>{data.phone}</div>
-                        <div>{data.privacyAccept.toString()}</div>
+                        <span>{data.name}</span>
+                        <span>{data.phone}</span>
+                        <span>{data.privacyAccept.toString()}</span>
                      </Fragment>
                   );
                })} */}
