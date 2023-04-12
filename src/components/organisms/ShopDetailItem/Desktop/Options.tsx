@@ -45,6 +45,7 @@ const Options = (props: Props) => {
          if (optionIdx !== -1 && !duplicate) {
             //같은 종류의 옵션이 있고 중복 거부일때 => 옵션 변경
             option[optionIdx].option = item.option;
+            option[optionIdx].price = item.price;
             setValue('options', option, { shouldValidate: true });
             return;
          }
@@ -68,8 +69,13 @@ const Options = (props: Props) => {
       setLevel(1);
    }, [setLevel]);
    const onSubmit = React.useCallback((data: shopOptionData) => {
+      orderStore.setName(item.title);
       orderStore.setOptions(data.options);
    }, []);
+   //sum
+   const Sum = React.useMemo(() => {
+      return options.field.value.reduce((a, b) => a + b.price, 0);
+   }, [options.field.value]);
 
    return mount ? (
       <form onSubmit={handleSubmit(onSubmit)} className={'column h-full'}>
@@ -116,7 +122,7 @@ const Options = (props: Props) => {
          <section className={isMobile ? 'fixed bottom-0 w-full z-30 ' : ''}>
             <div className={cc(isMobile ? 'h-12 py-2 px-3 border-t border-gray-3 ' : '', 'row justify-between text-p3 pt-2 bg-white')}>
                <span>{'총 상품금액'}</span>
-               <span>{`${formatNumber(options.field.value.reduce((a, b) => a + b.price, 0))} 원`}</span>
+               <span>{`${formatNumber(Sum)} 원`}</span>
             </div>
             <button
                onClick={() => {

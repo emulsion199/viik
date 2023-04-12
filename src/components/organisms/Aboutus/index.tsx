@@ -9,7 +9,7 @@ const Aboutus = (props: { className?: string }) => {
       <Tab.Group>
          <Tab.List
             className={cc(
-               'sticky top-[180px] z-always bg-bg-default h-12 w-full border-b border-b-gray-3 row md:text-p3 text-p2 font-medium',
+               'sticky top-[180px] z-20 bg-bg-default h-12 w-full border-b border-b-gray-3 row md:text-p3 text-p2 font-medium',
                className
             )}
          >
