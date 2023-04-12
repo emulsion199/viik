@@ -1,5 +1,7 @@
+import { ShopItemList } from '#constants/shop';
 import { cc } from '#utils/string';
 import { Tab } from '@headlessui/react';
+import { useRouter } from 'next/router';
 import React from 'react';
 import DesktopCarousel from '../Desktop/DesktopCarousel';
 import Options from '../Desktop/Options';
@@ -30,6 +32,9 @@ const stylesTabBorder = cc(
 );
 
 const MobileShopDetailItem = () => {
+   //ITEM
+   const code = useRouter().query.code;
+   const itemInfo = ShopItemList.find(it => it.code === code);
    //SCROLL
    const [fix, setFix] = React.useState(false);
    const sectionRef = React.useRef<HTMLDivElement>(null);
@@ -54,12 +59,10 @@ const MobileShopDetailItem = () => {
          <h1 className={'font-[reckless] text-[62px] pb-[40px]'}>{'Forli'}</h1>
          <div className={'flex-1 w-full '}>
             <section className={'flex-1 '}>
-               <DesktopCarousel />
+               <DesktopCarousel imglink={itemInfo?.imglink ?? ''} />
             </section>
 
-            <section className={'flex-1 mb-14'}>
-               <Options />
-            </section>
+            <section className={'flex-1 mb-14'}>{itemInfo && <Options item={itemInfo} />}</section>
          </div>
 
          <Tab.Group
@@ -68,7 +71,7 @@ const MobileShopDetailItem = () => {
                onTabChange(it, 110);
             }}
          >
-            <Tab.List className='h-12 row w-full border-b  border-b-gray-3 row text-p3 font-medium bg-white z-40 sticky top-[64px]'>
+            <Tab.List className='h-12 row w-full border-b  border-b-gray-3 row text-p3 font-medium bg-white z-20 sticky top-[64px]'>
                <Tab className={stylesTab}>
                   <span className={stylesTabBorder}>{'상세 정보'}</span>
                </Tab>

@@ -1,39 +1,139 @@
+import ConsultFormRegister from '#components/organisms/ConsultFormRegister';
+import ConsultFormSuccess from '#components/organisms/ConsultFormSuccess';
+import { ShopItem } from '#constants/shop';
 import { useMobile } from '#hooks/useMobile';
-import { cc } from '#utils/string';
+import { useMount } from '#hooks/useMount';
+import { cc, formatNumber } from '#utils/string';
+import React, { useEffect } from 'react';
+import { useController, useFieldArray } from 'react-hook-form';
+import Modal from 'src/atoms/Modal';
+import Material from 'src/atoms/ShopDetail/Material';
 import OptionList from 'src/atoms/ShopDetail/OptionList';
 import Palette from 'src/atoms/ShopDetail/Palette';
+import useConsultStore from 'src/store/useConsultStore';
+import useOrderStore from 'src/store/useOrderStore';
+import { shopOptionData, useShopOptionForm } from '../form';
 
-const Options = () => {
+interface Props {
+   item: ShopItem;
+}
+const Options = (props: Props) => {
+   const { item } = props;
    const isMobile = useMobile(1000);
-   return (
-      <div className={cc('column h-full justify-between')}>
-         <section>
-            <Palette
-               className={isMobile ? 'px-3 py-2' : ''}
-               title={'KETS INFORRES'}
-               colors={['#C2BEB9', '#2F3C4A', '#CCADA0', '#AEACA9', '#3F4B46', '#A89D91', '#DFE0DC']}
-            />
-            <Palette
-               className={isMobile ? 'px-3 py-2' : ''}
-               title={'KETS TWEET'}
-               colors={['#414231', '#272D38', '#AFB0B3', '#908D8E', '#BFBBB7', '#C9C9C8']}
-            />
-            <hr className={'mt-3 '} />
+   const { control, formState, setValue, handleSubmit } = useShopOptionForm(item.options.length);
+   const options = useController({
+      control,
+      name: 'options',
+   });
+   //MODAL
+   const [open, toggle] = React.useReducer(x => !x, false);
 
-            <OptionList className={isMobile ? 'px-3 py-2' : ''} title={'사이즈 (중복 선택 가능)'} options={['LEFT SIDE', 'RIGHT SIDE']} />
-            <hr className={'mt-[20px]'} />
-            <OptionList className={isMobile ? 'px-3 py-2' : ''} title={'등, 팔쿠션 내장재'} options={['마이크로 화이버', '향균 파워솜']} />
-            <hr className={'mt-[20px]'} />
-            <OptionList className={isMobile ? 'px-3 py-2' : ''} title={'좌방석 내장재'} options={['마이크로 화이버', 'HR 골드스펀지']} />
+   const onChangeOption = React.useCallback(
+      (item: { title: string; option: string; price: number }, duplicate: boolean) => {
+         const option = options.field.value;
+         //아예 똑같은 옵션일 때
+         const sameOption = option.find(it => it.title === item.title && it.option === item.option);
+         setValue(
+            'options',
+            option.filter(it => !(it.title === item.title && it.option === item.option)),
+            { shouldValidate: true }
+         );
+         if (sameOption) return;
+
+         //같은 종류의 옵션이 있을때
+         const optionIdx = option.findIndex(it => it.title === item.title);
+         if (optionIdx !== -1 && !duplicate) {
+            //같은 종류의 옵션이 있고 중복 거부일때 => 옵션 변경
+            option[optionIdx].option = item.option;
+            setValue('options', option, { shouldValidate: true });
+            return;
+         }
+
+         if (optionIdx === -1 || duplicate) {
+            //같은 종류의 옵션이 없을때, 중복 허용일때
+            setValue('options', [...option, item], { shouldValidate: true });
+            return;
+         }
+      },
+      [options]
+   );
+
+   //mount
+   const mount = useMount();
+   //submit
+   const orderStore = useOrderStore();
+   const consultStore = useConsultStore();
+   const { setLevel } = consultStore;
+   useEffect(() => {
+      setLevel(1);
+   }, [setLevel]);
+   const onSubmit = React.useCallback((data: shopOptionData) => {
+      orderStore.setOptions(data.options);
+   }, []);
+
+   return mount ? (
+      <form onSubmit={handleSubmit(onSubmit)} className={'column h-full'}>
+         <section className={cc('column h-full flex-1  gap-3')}>
+            {item.options.map((it, idx) => {
+               if (it.item[0].imgsrc)
+                  return (
+                     <div key={idx}>
+                        <Material
+                           onChange={onChangeOption}
+                           className={isMobile ? 'px-3 py-2' : ''}
+                           option={it}
+                           value={options.field.value}
+                        />
+                        <hr className={'mt-3 '} />
+                     </div>
+                  );
+               if (it.item[0].color)
+                  return (
+                     <div key={idx}>
+                        <Palette
+                           onChange={onChangeOption}
+                           className={isMobile ? 'px-3 py-2' : ''}
+                           option={it}
+                           value={options.field.value}
+                        />
+                        <hr className={'mt-3 '} />
+                     </div>
+                  );
+               else
+                  return (
+                     <div key={idx}>
+                        <OptionList
+                           onChange={onChangeOption}
+                           className={isMobile ? 'px-3 py-2' : ''}
+                           option={it}
+                           value={options.field.value}
+                        />
+                        <hr className={'mt-3 '} />
+                     </div>
+                  );
+            })}
          </section>
-         <section className={isMobile ? 'fixed bottom-0 w-full z-always ' : ''}>
-            <div className={cc(isMobile ? 'h-12 py-2 px-3 border-t border-gray-3' : '', 'row justify-between text-p3 pt-2 bg-white')}>
+         <section className={isMobile ? 'fixed bottom-0 w-full z-30 ' : ''}>
+            <div className={cc(isMobile ? 'h-12 py-2 px-3 border-t border-gray-3 ' : '', 'row justify-between text-p3 pt-2 bg-white')}>
                <span>{'총 상품금액'}</span>
-               <span>{'123123원'}</span>
+               <span>{`${formatNumber(options.field.value.reduce((a, b) => a + b.price, 0))} 원`}</span>
             </div>
-            <button className={cc('primary button', isMobile ? '' : 'mt-10 ')}>{'나만의 장바구니'}</button>
+            <button
+               onClick={() => {
+                  formState.isValid && toggle();
+               }}
+               className={cc('primary button transition-all', isMobile ? '' : 'mt-10', !formState.isValid ? 'button !disabled' : '')}
+            >
+               {'나만의 장바구니'}
+            </button>
          </section>
-      </div>
+
+         <Modal toggleButton className={'rounded-none'} title={''} open={open} toggle={toggle}>
+            {consultStore.level == 1 ? <ConsultFormRegister /> : <ConsultFormSuccess />}
+         </Modal>
+      </form>
+   ) : (
+      <></>
    );
 };
 

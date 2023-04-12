@@ -1,5 +1,4 @@
 import DesktopNavbar from '#components/organisms/Navbar/Desktop';
-import { motion } from 'framer-motion';
 import useBgStore from 'src/store/useTextColor';
 
 const DesktopMain = () => {

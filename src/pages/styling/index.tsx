@@ -1,14 +1,14 @@
+import ConsultFormSuccess from '#components/organisms/ConsultFormSuccess';
+import Footer from '#components/organisms/Footer';
 import DesktopNavbar from '#components/organisms/Navbar/Desktop';
-import React from 'react';
+import MobileNavbar from '#components/organisms/Navbar/Mobile';
+import { useMobile } from '#hooks/useMobile';
+import React, { useEffect } from 'react';
 import ConsultFormRegister from 'src/components/organisms/ConsultFormRegister';
 import RootTemplate from 'src/components/Template/RootTemplate';
-import useBgStore from 'src/store/useTextColor';
-import { motion } from 'framer-motion';
-import { useMobile } from '#hooks/useMobile';
-import MobileNavbar from '#components/organisms/Navbar/Mobile';
-import Footer from '#components/organisms/Footer';
 import useConsultStore from 'src/store/useConsultStore';
-import ConsultFormSuccess from '#components/organisms/ConsultFormSuccess';
+import useOrderStore from 'src/store/useOrderStore';
+import useBgStore from 'src/store/useTextColor';
 const StylingPage = () => {
    const { setImageId } = useBgStore();
    const { setLevel } = useConsultStore();
@@ -20,6 +20,12 @@ const StylingPage = () => {
    const mobile = useMobile(800);
 
    const { level } = useConsultStore();
+   const orderStore = useOrderStore();
+   const { setInit } = orderStore;
+   useEffect(() => {
+      setInit(); // 렌더후 상품 선택사항 초기화
+   }, [setInit]);
+
    return (
       <RootTemplate>
          <div className={'column z-50 justify-center items-center flex-1 bg-bg-default transition-all duration-1000'}>

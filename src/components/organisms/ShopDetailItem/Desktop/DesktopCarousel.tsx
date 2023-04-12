@@ -3,8 +3,11 @@ import useEmblaCarousel from 'embla-carousel-react';
 import Image, { StaticImageData } from 'next/image';
 import React, { useState } from 'react';
 
-const DesktopCarousel = () => {
-   const slides = [1, 2, 3, 4];
+interface Props {
+   imglink: string[];
+}
+const DesktopCarousel = (props: Props) => {
+   const { imglink } = props;
 
    const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, []);
 
@@ -22,12 +25,11 @@ const DesktopCarousel = () => {
          {mount && (
             <div className={'relative overflow-hidden aspect-[5/6]'} ref={emblaRef}>
                <div className={'row h-full'}>
-                  {slides.map((it, idx) => (
+                  {imglink.map((it, idx) => (
                      <div
                         style={{
                            flex: '0 0 100%',
-
-                           backgroundImage: 'url(' + `/shop/shop_${it}.png` + ')',
+                           backgroundImage: it,
                            backgroundSize: 'cover',
                            backgroundPosition: 'center',
                            backgroundRepeat: 'no-repeat',
@@ -37,10 +39,10 @@ const DesktopCarousel = () => {
                   ))}
                </div>
                <button className={'row absolute bottom-[10px] right-[10px] items-center'}>
-                  <p className={'row  text-gray-2 text-p2'}>
+                  <span className={'row  text-gray-2 text-p2'}>
                      {selectedIndex + 1}
-                     <p className={'text-gray-200'}>/{slides.length}</p>
-                  </p>
+                     <span className={'text-gray-200'}>/{imglink.length}</span>
+                  </span>
                </button>
             </div>
          )}
