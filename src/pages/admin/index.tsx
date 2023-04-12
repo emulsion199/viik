@@ -2,6 +2,7 @@ import SecondaryTemplate from '#components/Template/SecondaryTemplate';
 import { PATH } from '#constants/path';
 import { useMount } from '#hooks/useMount';
 import { cc } from '#utils/string';
+import { Timestamp } from 'firebase/firestore';
 import { useRouter } from 'next/router';
 import React, { Fragment, useEffect, useState } from 'react';
 import { addData, getDatas } from 'src/firebase/firebaseClient';
@@ -16,9 +17,10 @@ interface PurchaseProps {
    phone: string;
    privacyAccept: boolean;
    title: string;
+   createdAt: Timestamp;
 }
 const Category = ['name', 'phone', 'address', 'address_detail', 'item'];
-const Category_Kor = ['이름', '전화번호', '주소', '상세 주소', '상품'];
+const Category_Kor = ['일자', '이름', '전화번호', '주소', '상세 주소', '상품'];
 const Admin = () => {
    const authStore = useAuthStore();
    const route = useRouter();
@@ -60,6 +62,7 @@ const Admin = () => {
                </tr>
                {Data.map((data, idx) => (
                   <tr className={cc('', idx % 2 ? 'bg-bg-hover' : 'bg-bg-default')}>
+                     <td className={'px-2 border'}>{new Date(data.createdAt.seconds * 1000).toLocaleString()}</td>
                      <td className={'px-2 border'}>{data.name}</td>
                      <td className={'px-2 border'}>{data.phone}</td>
 
