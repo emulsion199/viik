@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const ConsultFormSuccess = () => {
    return (
-      <div className={'column justify-center items-center gap-[86px]'}>
+      <div className={'column justify-center items-center gap-[86px] w-[360px]'}>
          <h1>{'상담 신청 완료'}</h1>
          <Link href={PATH.shop} className={'w-full h-15 button primary flex items-center justify-center'}>
             {'제품 보러가기'}

@@ -35,8 +35,8 @@ const Admin = () => {
 
    useEffect(() => {
       const LoadData = async () => {
-         const data: any = await getDatas('purchase');
-         setData(data);
+         const data: any[] = (await getDatas('purchase')) ?? [];
+         setData(data.sort((a, b) => b.createdAt.seconds - a.createdAt.seconds));
       };
       void LoadData();
    }, []);
