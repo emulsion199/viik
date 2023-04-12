@@ -59,7 +59,7 @@ const MobileShopDetailItem = () => {
          <h1 className={'font-[reckless] text-[62px] pb-[40px]'}>{'Forli'}</h1>
          <div className={'flex-1 w-full '}>
             <section className={'flex-1 '}>
-               <DesktopCarousel imglink={itemInfo?.imglink ?? ''} />
+               <DesktopCarousel imglink={itemInfo?.imglink ?? []} />
             </section>
 
             <section className={'flex-1 mb-14'}>{itemInfo && <Options item={itemInfo} />}</section>

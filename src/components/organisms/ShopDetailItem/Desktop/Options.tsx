@@ -68,6 +68,7 @@ const Options = (props: Props) => {
       setLevel(1);
    }, [setLevel]);
    const onSubmit = React.useCallback((data: shopOptionData) => {
+      orderStore.setName(item.title);
       orderStore.setOptions(data.options);
    }, []);
 

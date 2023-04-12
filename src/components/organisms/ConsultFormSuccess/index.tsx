@@ -1,6 +1,5 @@
 import { PATH } from '#constants/path';
 import Link from 'next/link';
-import { Button } from 'src/atoms/Button';
 
 const ConsultFormSuccess = () => {
    return (
