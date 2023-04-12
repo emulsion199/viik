@@ -1,7 +1,7 @@
 
 import { initializeApp } from "firebase/app";
 import {getAuth, signInWithEmailAndPassword} from 'firebase/auth'
-import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, getFirestore, setDoc, updateDoc } from "firebase/firestore";
+import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, getFirestore, serverTimestamp, setDoc, updateDoc } from "firebase/firestore";
 
 // Import the functions you need from the SDKs you need
 
@@ -32,7 +32,7 @@ const db = getFirestore(app);
 
 export const addData = async (data: object,path:string) => { 
     try {
-      const docRef = await addDoc(collection(db, path), data);
+      const docRef = await addDoc(collection(db, path), {...data,createdAt:serverTimestamp()});
        console.log('Document written with ID: ', docRef.id);
     } catch (e) {
        console.error('Error adding document: ', e);
