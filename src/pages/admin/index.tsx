@@ -53,7 +53,7 @@ const Admin = () => {
       mount && (
          <SecondaryTemplate>
             <table>
-               <tr>
+               <tr className={'sticky top-[80px]'}>
                   {Category_Kor.map((c, index) => (
                      <th key={index} className={'px-2 bg-primary text-white border border-bg-default'}>
                         {c}
