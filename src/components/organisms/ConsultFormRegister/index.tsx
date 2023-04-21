@@ -13,6 +13,7 @@ import { addData } from 'src/firebase/firebaseClient';
 import useConsultStore from 'src/store/useConsultStore';
 import useOrderStore from 'src/store/useOrderStore';
 import useConsultFormRegister, { ConsultFormRegisterData } from './form';
+import { sendKakaoMessage } from '#utils/ncp';
 
 //STYLE
 const ToggleStyle = cc('w-5 h-5 rounded-[3.33px] border border-gray-1 ');
@@ -41,6 +42,7 @@ const ConsultFormRegister = (props: Props) => {
    const submit = React.useCallback((data: ConsultFormRegisterData) => {
       const { name, phone, address, address_detail, privacyAccept } = data;
       addData({ ...data, item: orderStore.options, title: orderStore.name }, 'purchase');
+      sendKakaoMessage(phone);
       setLevel(2);
    }, []);
    //HYDRATION ERROR

@@ -30,7 +30,6 @@ const DesktopMain = () => {
       >
          <div className={'w-full'}>
             <DesktopNavbar />
-            <button onClick={() => sendKakaoMessage('01090288518')}>{'click'}</button>
          </div>
       </div>
    );
