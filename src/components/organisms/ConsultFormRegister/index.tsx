@@ -42,7 +42,7 @@ const ConsultFormRegister = (props: Props) => {
    const submit = React.useCallback((data: ConsultFormRegisterData) => {
       const { name, phone, address, address_detail, privacyAccept } = data;
       addData({ ...data, item: orderStore.options, title: orderStore.name }, 'purchase');
-      sendKakaoMessage(phone);
+      sendKakaoMessage(phone, name);
       setLevel(2);
    }, []);
    //HYDRATION ERROR

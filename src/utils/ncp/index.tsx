@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { createHmac } from 'crypto';
-const getRequestParams = (to: string) => {
+const getRequestParams = (to: string, name: string) => {
    return {
       plusFriendId: '@viik',
       templateCode: 'consultForm',
@@ -8,7 +8,7 @@ const getRequestParams = (to: string) => {
          {
             to: to,
             title: '[상담신청 완료]',
-            content: `${to.slice(7, 11)} 고객님 상담신청 완료되었습니다.
+            content: `${name} 고객님 상담신청 완료되었습니다.
 VIIK의 전문 디자이너가 고객님의 상담 도와드릴 예정입니다.
             
 고객님의 취향을 반영할 수 있는 VIIK와
@@ -20,8 +20,8 @@ VIIK의 전문 디자이너가 고객님의 상담 도와드릴 예정입니다.
       ],
    };
 };
-export const sendKakaoMessage = async (to: string) => {
-   const params = getRequestParams(to);
+export const sendKakaoMessage = async (to: string, name: string) => {
+   const params = getRequestParams(to, name);
    const date = Date.now().toString();
    const serviceId = process.env.NEXT_PUBLIC_NAVER_CHANNEL_ID;
    const secretKey = process.env.NEXT_PUBLIC_NAVER_SECRETKEY;
