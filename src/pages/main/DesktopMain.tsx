@@ -1,4 +1,5 @@
 import DesktopNavbar from '#components/organisms/Navbar/Desktop';
+import { sendKakaoMessage } from '#utils/ncp';
 import { useEffect } from 'react';
 import useBgStore from 'src/store/useTextColor';
 

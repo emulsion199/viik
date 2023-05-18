@@ -1,13 +1,22 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
-  swcMinify: true,
+   reactStrictMode: true,
+   swcMinify: true,
 
-  pageExtensions: ['tsx'],
+   async rewrites() {
+      return [
+         {
+            source: '/:path*',
+            destination: 'https://sens.apigw.ntruss.com/:path*',
+         },
+      ];
+   },
 
-  images: {
-    unoptimized: true,
-  },
+   pageExtensions: ['tsx'],
+
+   images: {
+      unoptimized: true,
+   },
 };
 
 module.exports = nextConfig;
