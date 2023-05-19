@@ -30,7 +30,7 @@ export const ShopItemList: ShopItem[] = [
       alias: 'FORLI',
       desc: '적당한 높이의 다리와 넉넉히 올라오는 좌방석의 높이, FORLI\n더욱 여유롭고 깔끔한 공간의 완성\n체격이 큰 구성원도 편안한 소파',
       imgsrc: SHOP_1,
-      imglink: ["url('/shop/detail/forlisofa.jpeg')", "url('/shop/detail/forlisofa2.jpeg')"],
+      imglink: ["url('/shop/detail/forlisofa.jpeg')", "url('/shop/detail/forlisofa2.png')"],
       type: 'SOFA',
       options: [
          {
@@ -99,7 +99,7 @@ export const ShopItemList: ShopItem[] = [
       alias: 'COMO',
       desc: '든든하게 어깨까지 받쳐줄 COMO\n나이에 관계 없이 반듯한 자세는 누구에게나 중요하니까\n낮은 좌방석으로 아이들도, 반려동물도 안전하게',
       imgsrc: SHOP_2,
-      imglink: ["url('/shop/detail/comosofa.jpeg')", "url('/shop/detail/comosofa2.jpeg')"],
+      imglink: ["url('/shop/detail/comosofa.png')", "url('/shop/detail/comosofa2.png')"],
       type: 'SOFA',
       options: [
          {

@@ -5,14 +5,6 @@ import React from 'react';
 import { useTabChange } from '../useTabChange';
 import DesktopCarousel from './DesktopCarousel';
 import Options from './Options';
-import DeleveryTab from './Tab/DeliveryTab';
-import FabricTab from './Tab/FabricTab';
-import ProductBuyInfoTab from './Tab/ProductBuyInfoTab';
-import ProductDetailInfoTab from './Tab/ProductDetailInfoTab';
-import ProductInfoTab from './Tab/ProductInfoTab';
-import ProductUseInfoTab from './Tab/ProductUseInfoTab';
-import SizeTab from './Tab/SizeTab';
-
 const TabItem = [
    '상품 정보',
    '소재',
@@ -23,9 +15,10 @@ const TabItem = [
    '상세 제품 고시 정보',
    // '리뷰',
 ];
+
 const DesktopShopDetailItem = () => {
    //ITEM
-   const code = useRouter().query.code;
+   const code = useRouter().query.code ?? 0;
    const itemInfo = ShopItemList.find(it => it.code === code);
    //SCROLL
    const [fix, setFix] = React.useState(false);
@@ -43,6 +36,14 @@ const DesktopShopDetailItem = () => {
       };
    }, []);
    const { childRef, onTabChange, tabRef, handleScroll, selectedTab } = useTabChange();
+   //TABS
+   const ProductInfoTab = require(`./Tab/${code}/ProductInfoTab`).default;
+   const DeliveryTab = require(`./Tab/${code}/DeliveryTab`).default;
+   const FabricTab = require(`./Tab/${code}/FabricTab`).default;
+   const ProductBuyInfoTab = require(`./Tab/${code}/ProductBuyInfoTab`).default;
+   const ProductDetailInfoTab = require(`./Tab/${code}/ProductDetailInfoTab`).default;
+   const SizeTab = require(`./Tab/${code}/SizeTab`).default;
+   const ProductUseInfoTab = require(`./Tab/${code}/ProductUseInfoTab`).default;
 
    return (
       <div className={'column justify-center items-center  bg-white w-full'} ref={tabRef}>
@@ -55,9 +56,7 @@ const DesktopShopDetailItem = () => {
             <section className={'flex-1 '}>{itemInfo && <Options item={itemInfo} />}</section>
          </div>
          <div className={'relative w-full items-center text-start column py-[180px] gap-[100px]'} ref={sectionRef}>
-            <div ref={el => (childRef.current[0] = el)}>
-               <ProductInfoTab />
-            </div>
+            <div ref={el => (childRef.current[0] = el)}>{<ProductInfoTab />}</div>
             <div ref={el => (childRef.current[1] = el)}>
                <FabricTab />
             </div>
@@ -65,7 +64,7 @@ const DesktopShopDetailItem = () => {
                <SizeTab />
             </div>
             <div ref={el => (childRef.current[3] = el)}>
-               <DeleveryTab />
+               <DeliveryTab />
             </div>
             <div ref={el => (childRef.current[4] = el)}>
                <ProductBuyInfoTab />

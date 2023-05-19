@@ -6,13 +6,6 @@ import { useRouter } from 'next/router';
 import React from 'react';
 import DesktopCarousel from '../Desktop/DesktopCarousel';
 import Options from '../Desktop/Options';
-import DeleveryTab from '../Desktop/Tab/DeliveryTab';
-import FabricTab from '../Desktop/Tab/FabricTab';
-import ProductBuyInfoTab from '../Desktop/Tab/ProductBuyInfoTab';
-import ProductDetailInfoTab from '../Desktop/Tab/ProductDetailInfoTab';
-import ProductInfoTab from '../Desktop/Tab/ProductInfoTab';
-import ProductUseInfoTab from '../Desktop/Tab/ProductUseInfoTab';
-import SizeTab from '../Desktop/Tab/SizeTab';
 import { useTabChange } from '../useTabChange';
 
 const TabItem = [
@@ -34,7 +27,7 @@ const stylesTabBorder = cc(
 
 const MobileShopDetailItem = () => {
    //ITEM
-   const code = useRouter().query.code;
+   const code = useRouter().query.code ?? 0;
    const itemInfo = ShopItemList.find(it => it.code === code);
    //SCROLL
    const [fix, setFix] = React.useState(false);
@@ -54,7 +47,13 @@ const MobileShopDetailItem = () => {
 
    const [selectedIndex, setSelectedIndex] = React.useState(0);
    const { childRef, onTabChange, tabRef, handleScroll, selectedTab } = useTabChange();
-
+   const ProductInfoTab = require(`../Desktop/Tab/${code}/ProductInfoTab`).default;
+   const DeliveryTab = require(`../Desktop/Tab/${code}/DeliveryTab`).default;
+   const FabricTab = require(`../Desktop/Tab/${code}/FabricTab`).default;
+   const ProductBuyInfoTab = require(`../Desktop/Tab/${code}/ProductBuyInfoTab`).default;
+   const ProductDetailInfoTab = require(`../Desktop/Tab/${code}/ProductDetailInfoTab`).default;
+   const SizeTab = require(`../Desktop/Tab/${code}/SizeTab`).default;
+   const ProductUseInfoTab = require(`../Desktop/Tab/${code}/ProductUseInfoTab`).default;
    const mount = useMount();
    return (
       <div className={'column justify-center items-center  bg-white w-full'} ref={tabRef}>
@@ -105,7 +104,7 @@ const MobileShopDetailItem = () => {
                <SizeTab />
             </div>
             <div ref={el => (childRef.current[1] = el)} className={'px-[25px]'}>
-               <DeleveryTab />
+               <DeliveryTab />
             </div>
             <div className={'px-[25px]'}>
                <ProductBuyInfoTab />

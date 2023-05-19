@@ -9,12 +9,11 @@ import MobileMain from './MobileMain';
 
 const Main = () => {
    React.useEffect(() => {
-      setImageId(1);
+      setImageId(3);
    }, []);
    const mobile = useMobile(800);
    const store = useBgStore();
    const { imageId, setImageId } = store;
-   useInterval(() => setImageId((imageId % 3) + 1), 5000);
 
    const mount = useMount();
    return mount && <RootTemplate>{mobile ? <MobileMain /> : <DesktopMain />}</RootTemplate>;
