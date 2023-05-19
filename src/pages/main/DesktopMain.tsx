@@ -26,7 +26,7 @@ const DesktopMain = () => {
             backgroundRepeat: 'no-repeat',
             transition: 'background-image ease-in 0.5s',
          }}
-         className={'flex items-center w-screen h-screen '}
+         className={'flex w-screen h-screen '}
       >
          <div className={'w-full'}>
             <DesktopNavbar />
